@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="inner-container">
+
+    <h1><strong>Student</strong> Sign Up</h1>
+    <h2>For AAU students only</h2>
+    <div style="height: 30%;"></div>
+    <form #signUpForm="ngForm" (ngSubmit)="handleSubmit(signUpForm)">
+      <input type="text" name="email" id="email" placeholder="Email" ngModel>
+      <button type="submit">Continue</button>
+    </form>
+    <p>Already have an account? <a href="#"><strong>Login</strong></a></p>
+  </div>
+</div>
