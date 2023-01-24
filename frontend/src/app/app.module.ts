@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingSystemComponent } from './components/rating-system/rating-system.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  declarations: [AppComponent, SignupComponent],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, NgbModule],
+  declarations: [AppComponent, SignupComponent, RatingSystemComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
