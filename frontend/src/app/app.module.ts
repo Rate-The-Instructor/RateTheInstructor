@@ -9,6 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,7 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
-import { LoginComponent } from './components/login/login.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   imports: [
@@ -40,9 +45,11 @@ import { LoginComponent } from './components/login/login.component';
     
     MatRadioModule,
     MatGridListModule,
+    MatToolbarModule,
+    MatMenuModule,
     MatButtonModule  
   ],
-  declarations: [AppComponent, SignupComponent, RatingSystemComponent, LoginComponent],
+  declarations: [AppComponent, SignupComponent, RatingSystemComponent, LoginComponent, NavBarComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
