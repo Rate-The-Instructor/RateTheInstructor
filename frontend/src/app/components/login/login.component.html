@@ -1,0 +1,46 @@
+<mat-grid-list style="margin-top: 14px" cols="1" rowHeight="500px">
+  <br />
+  <h1 class="mat-headline-4" style="text-align: center">
+    <strong>LogIn</strong> to rate your favorite instructors
+  </h1>
+  <mat-grid-tile>
+    <div class="example-container">
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Email address</mat-label>
+        <input
+          [(ngModel)]="loginData.email"
+          matInput
+          placeholder="Ex. pat@example.com"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 400px" appearance="fill" class="width-100">
+        <mat-label>Enter password</mat-label>
+        <input
+          [(ngModel)]="loginData.password"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br />
+      <span>
+        <button style="margin-right: 40px" mat-raised-button color="primary">
+          Log In
+        </button>
+      </span>
+      <span
+        >do not have an account?
+        <a [routerLink]="['/signup']">create an account</a></span
+      >
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

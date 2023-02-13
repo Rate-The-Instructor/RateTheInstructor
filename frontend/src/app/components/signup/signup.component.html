@@ -1,16 +1,26 @@
-<mat-grid-list style="margin-top: 14px;" cols="1" rowHeight="500px">
+<mat-grid-list style="margin-top: 14px" cols="1" rowHeight="500px">
   <br />
-  <h1 class="mat-headline-4" style="text-align: center;"><strong>Sign Up</strong> to rate your favorite instructors</h1>
+  <h1 class="mat-headline-4" style="text-align: center">
+    <strong>Sign Up</strong> to rate your favorite instructors
+  </h1>
   <mat-grid-tile>
-    <div class="example-container">
+    <div class="example-container" style="width: 400px">
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Email address</mat-label>
-        <input [(ngModel)]="signUpData.email" matInput placeholder="Ex. pat@example.com" />
+        <input
+          [(ngModel)]="signUpData.email"
+          matInput
+          placeholder="Ex. pat@example.com"
+        />
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Enter password</mat-label>
-        <input [(ngModel)]="signUpData.password" matInput [type]="hide ? 'password' : 'text'" />
+        <input
+          [(ngModel)]="signUpData.password"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
         <button
           mat-icon-button
           matSuffix
@@ -22,7 +32,11 @@
         </button>
       </mat-form-field>
 
-      <mat-form-field style="margin-right: 4px;" appearance="fill" class="width-25">
+      <mat-form-field
+        style="margin-right: 4px; width: 200px"
+        appearance="fill"
+        class="width-25"
+      >
         <mat-label>Department</mat-label>
         <mat-select [(ngModel)]="signUpData.department">
           <mat-option [value]="6"> Software Engineering </mat-option>
@@ -46,9 +60,14 @@
 
       <br />
       <br />
-
-      <button mat-raised-button color="primary">Sign Up</button>
-
+      <span>
+        <button style="margin-right: 40px" mat-raised-button color="primary">
+          Sign Up
+        </button>
+      </span>
+      <span
+        >already have an account? <a [routerLink]="['/login']">Login</a></span
+      >
     </div>
   </mat-grid-tile>
 </mat-grid-list>

@@ -6,15 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-
   hide = true;
 
   signUpData = {
     email: '',
     password: '',
     department: '',
-    year: 1
-  }
+    year: 1,
+  };
 
   ngOnInit() {}
 
