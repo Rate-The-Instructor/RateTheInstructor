@@ -1,0 +1,22 @@
+<mat-toolbar class="container" color="primary" class="mat-elevation-z8">
+  <span><mat-icon>eco</mat-icon> LetsPlay</span>
+
+  <a class="first" mat-button routerLink="">Instructors</a>
+  <input
+    class="searchBar"
+    matInput
+    [(ngModel)]="searchTerm"
+    placeholder="Search"
+  />
+
+  <div class="spacer"></div>
+
+  <a mat-button [matMenuTriggerFor]="menu" routerLink="user">
+    <span style="display: flex; align-items: center;"> Logged user<mat-icon>keyboard_arrow_down</mat-icon> </span>  </a
+  >
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item color="warn">Log Out</a>
+  </mat-menu>
+  <a mat-stroked-button theme="forest" routerLink="login">Sign In</a>
+  <a mat-raised-button theme="forest" routerLink="signup">Sign Up</a>
+</mat-toolbar>

@@ -1,0 +1,29 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+a {
+    margin-right: .5rem ;
+
+} 
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.first{
+    margin-left: .5rem;
+}
+::ng-deep .searchBar {
+    border-radius: .4rem;
+    padding-left: .4rem;
+    border: none;
+    font-size: medium;
+    
+}
+::ng-deep .searchBar:focus {
+    outline: none;
+    border: 3px solid rgba(0, 0, 0, 0.118);
+
+}
+
