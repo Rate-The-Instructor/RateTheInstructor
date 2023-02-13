@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
@@ -7,6 +6,15 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+
+  hide = true;
+
+  signUpData = {
+    email: '',
+    password: '',
+    department: '',
+    year: 1
+  }
 
   ngOnInit() {}
 
