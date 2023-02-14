@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfessorDetailComponent } from "./components/professor-detail/professor-detail.component";
 
 
 // Angular material stuff
@@ -35,6 +36,7 @@ import {MatMenuModule} from '@angular/material/menu';
     NgbModule,
     BrowserAnimationsModule,
 
+
     // Angular material
     MatFormFieldModule,
     MatNativeDateModule,
@@ -49,7 +51,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatMenuModule,
     MatButtonModule  
   ],
-  declarations: [AppComponent, SignupComponent, RatingSystemComponent, LoginComponent, NavBarComponent],
+  declarations: [AppComponent, SignupComponent, RatingSystemComponent, LoginComponent, NavBarComponent,ProfessorDetailComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
