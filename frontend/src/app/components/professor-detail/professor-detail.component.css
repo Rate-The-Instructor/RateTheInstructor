@@ -1,6 +1,6 @@
 .info{
     width: 50%;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-top: 50px;
 }
 .rating{
@@ -20,7 +20,7 @@ h1{
 .overall{
     font-weight: 500;
     align-items: center;
-    padding-left: 2%;
+    padding-left: 1%;
     margin: 0;
     font-size: 20px;
 }
@@ -28,6 +28,30 @@ h1{
     display: flex;
     margin-top: 10px;
 }
+.dep{
+    text-decoration:underline ;
+}
 .btn-container{
     text-align: left;
+}
+.stat{
+    display: flex;
+    margin: 10px 0;
+}
+
+.percentage{
+    border-right: 1px solid black;
+    padding-right: 1%;
+    padding-bottom: 1%;
+}
+
+.difficulty{
+    border-left: 1px solid black;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+.probab,.level-diff{
+    font-size: 2em;
+    text-align: center;
+    font-weight: 900;
 }
