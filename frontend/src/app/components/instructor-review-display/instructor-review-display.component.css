@@ -2,18 +2,24 @@
     display: flex;
     justify-content: space-around;
     margin: 1em;
-    
+    padding: 2rem;
+    font-size: medium;
+    border-radius: 1rem;
+    background-color: rgb(233, 235, 254);
 }
+
+
 .rates, .review {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 1em;
 }
-.top-content , .review-part,.icons {
+.top-content , .review-part, .icons {
     display: flex;
     flex: auto;
     justify-content: space-between;
+    align-items: center;
 }
 #quality, #difficulty {
     background-color: #7ff6c3;
@@ -42,3 +48,20 @@
     padding-top: 3px;
 }
 
+.levelAndSubject {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.rates {
+    margin-right: 3rem;
+}
+
+.level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

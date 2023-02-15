@@ -1,5 +1,4 @@
-import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
-import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +14,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
+import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
+import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
+import { TopTagsComponent } from './components/top-tags/top-tags.component';
 
 // Angular material stuff
 import { MatChipsModule } from '@angular/material/chips';
@@ -28,7 +30,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
+    MatCardModule
   ],
   declarations: [
     AppComponent,
