@@ -38,6 +38,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import { MatDividerModule } from '@angular/material/divider';
     InstructorProfileComponent,
     RatingBarComponent,
     NotFoundpageComponent,
+    InstructorsListPageComponent,
 
   ],
   providers: [],

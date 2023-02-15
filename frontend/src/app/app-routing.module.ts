@@ -5,12 +5,14 @@ import { InstructorReviewInputComponent } from './components/instructor-review-i
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'rate/:instructorId', component: InstructorReviewInputComponent },
-  { path: 'instructor/:instructorId', component: InstructorProfileComponent },
+  { path: 'instructors/:instructorId', component: InstructorProfileComponent },
+  { path: 'instructors', component: InstructorsListPageComponent },
   { path: '**', component: NotFoundpageComponent },
 ];
 
