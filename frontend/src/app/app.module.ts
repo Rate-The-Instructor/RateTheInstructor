@@ -19,8 +19,12 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+<<<<<<< HEAD
+import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
+=======
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 
+>>>>>>> main
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -36,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
+
 
 
 @NgModule({
@@ -74,8 +79,13 @@ import {MatDividerModule} from '@angular/material/divider';
     TopTagsComponent,
     ProfessorDetailComponent,
     InstructorReviewComponent,
+<<<<<<< HEAD
+    InstructorCardComponent,
+    InstructorCardComponent,
+=======
     InstructorProfileComponent,
     RatingBarComponent,
+>>>>>>> main
   ],
   providers: [],
   bootstrap: [AppComponent],
