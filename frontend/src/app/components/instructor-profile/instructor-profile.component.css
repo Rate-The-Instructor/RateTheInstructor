@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .profile-container {
     display: flex;
     justify-content: center;
@@ -9,7 +15,10 @@
 .left {
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
+}
+
+.reviews-container {
+    width: 80%;
 }
 
 .right {

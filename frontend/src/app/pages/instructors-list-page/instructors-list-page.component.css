@@ -1,0 +1,38 @@
+.container {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.filters-container {
+    margin-left: 3rem;
+}
+
+.bottom {
+    display: flex;
+}
+
+
+
+.instructors {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 80%;
+  padding-left: 4rem;
+  overflow-y: scroll;
+  height: 73vh;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

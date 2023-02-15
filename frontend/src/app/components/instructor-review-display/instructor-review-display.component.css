@@ -4,8 +4,8 @@
     margin: 1em;
     padding: 2rem;
     font-size: medium;
-    border-radius: 1rem;
-    background-color: rgb(233, 235, 254);
+    border-radius: .5rem;
+    border: 1px solid black;
 }
 
 
