@@ -36,7 +36,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 
 @NgModule({
   imports: [
@@ -62,6 +62,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+
   ],
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import {MatDividerModule} from '@angular/material/divider';
     InstructorReviewComponent,
     InstructorProfileComponent,
     RatingBarComponent,
+    NotFoundpageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
