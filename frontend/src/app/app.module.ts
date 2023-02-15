@@ -18,6 +18,7 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,6 +33,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { MatChipsModule } from '@angular/material/chips';
     TopTagsComponent,
     ProfessorDetailComponent,
     InstructorReviewComponent,
+    InstructorCardComponent,
+    InstructorCardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
