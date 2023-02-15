@@ -1,4 +1,4 @@
-import { MatCardModule } from '@angular/material/card';
+// System Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -17,9 +17,9 @@ import { InstructorReviewInputComponent } from './components/instructor-review-i
 import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 
 // Angular material stuff
-import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -32,8 +32,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { TopTagsComponent } from './components/top-tags/top-tags.component';
-import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 
 
 @NgModule({
@@ -69,7 +67,7 @@ import { ProfessorDetailComponent } from './components/professor-detail/professo
     InstructorReviewDisplayComponent,
     InstructorReviewInputComponent,
     TopTagsComponent,
-    ProfessorDetailComponent
+    ProfessorDetailComponent,
     InstructorReviewComponent,
   ],
   providers: [],
