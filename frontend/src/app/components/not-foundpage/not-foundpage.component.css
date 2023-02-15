@@ -1,71 +1,77 @@
-* {
-    font-family: Google sans, Arial;
-  }
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
-    animation: colorSlide 15s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
-   
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  }
-  .text-center {
-    text-align: center;
-  
-  }
-  h1,
-  h3 {
-    margin: 10px;
-    cursor: default;
-    
-   
-  }
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  animation: colorSlide 15s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+.text-center {
+  text-align: center;
+}
+h1,
+h3 {
+  margin: 10px;
+  cursor: default;
+}
 
-  h1 {
-    font-size: 8em;
-    transition: font-size 200ms ease-in-out;
-    margin-bottom: 2rem;
+h1 {
+  font-size: 8em;
+  transition: font-size 200ms ease-in-out;
+  margin-bottom: 2rem;
+}
+span#digit1 {
+  animation-delay: 200ms;
+}
+span#digit2 {
+  animation-delay: 300ms;
+}
+span#digit3 {
+  animation-delay: 400ms;
+}
+
+button {
+  border: 1px solid white;
+  background: transparent;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  transition: background-color 200ms ease-in;
+  margin: 20px 0;
+}
+
+@keyframes colorSlide {
+  0% {
+    background-color: #2a3d76;
   }
-  span#digit1 { animation-delay: 200ms; }
-  span#digit2 { animation-delay: 300ms; }
-  span#digit3 { animation-delay: 400ms; }
-  
-  button {
-    border: 1px solid white;
-    background: transparent;
-    outline: none;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    transition: background-color 200ms ease-in;
-    margin: 20px 0;
-    
+  25% {
+    background-color: rgb(26, 48, 114);
   }
-  
-  @keyframes colorSlide {
-    0% { background-color: #2a3d76; }
-    25% { background-color: rgb(26, 48, 114); }
-    50% { background-color: rgb(73, 83, 151); }
-    75% { background-color: rgba(56, 78, 166, 0.992); }
-    100% { background-color: #3551a7; }
+  50% {
+    background-color: rgb(73, 83, 151);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    };
-    100% {
-      opacity: 1;
-    }
+  75% {
+    background-color: rgba(56, 78, 166, 0.992);
   }
+  100% {
+    background-color: #3551a7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
