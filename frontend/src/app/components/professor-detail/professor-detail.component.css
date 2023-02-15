@@ -33,25 +33,26 @@ h1{
 }
 .btn-container{
     text-align: left;
+    margin-top: 1rem;
 }
 .stat{
     display: flex;
     margin: 10px 0;
+    gap: 3rem;
 }
 
-.percentage{
-    border-right: 1px solid black;
-    padding-right: 1%;
-    padding-bottom: 1%;
-}
-
-.difficulty{
-    border-left: 1px solid black;
-    padding-left: 1%;
-    padding-bottom: 1%;
-}
 .probab,.level-diff{
     font-size: 2em;
     text-align: center;
     font-weight: 900;
+}
+
+.value {
+    font-size: 5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.percentage, .difficulty {
+    margin-top: 1rem;
 }
