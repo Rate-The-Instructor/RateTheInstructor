@@ -30,6 +30,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+
 
 @NgModule({
   imports: [
@@ -64,6 +69,7 @@ import { MatMenuModule } from '@angular/material/menu';
     InstructorReviewDisplayComponent,
     InstructorReviewInputComponent,
     TopTagsComponent,
+    ProfessorDetailComponent
     InstructorReviewComponent,
   ],
   providers: [],
