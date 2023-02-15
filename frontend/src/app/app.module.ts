@@ -1,4 +1,3 @@
-import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 // System Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,12 +18,11 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
-<<<<<<< HEAD
 import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
-=======
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
+import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
->>>>>>> main
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,8 +37,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatDividerModule} from '@angular/material/divider';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -67,6 +64,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+
   ],
   declarations: [
     AppComponent,
@@ -79,13 +77,11 @@ import {MatDividerModule} from '@angular/material/divider';
     TopTagsComponent,
     ProfessorDetailComponent,
     InstructorReviewComponent,
-<<<<<<< HEAD
     InstructorCardComponent,
-    InstructorCardComponent,
-=======
     InstructorProfileComponent,
     RatingBarComponent,
->>>>>>> main
+    NotFoundpageComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
