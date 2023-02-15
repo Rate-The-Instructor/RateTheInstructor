@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+    
+}
+.rates, .review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1em;
+}
+.top-content , .review-part,.icons {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+}
+#quality, #difficulty {
+    background-color: #7ff6c3;
+    font-size:50px;
+    display: block;
+    height: 80px;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 1.8rem;
+    font-weight: bold;
+}
+#difficulty {
+    background-color: #e0e0e0;
+}
+.difficulty,.quality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.level {
+    background-color:#7ff6c3 ;
+    width: 8em;
+    text-align: center;
+    border-radius: 5px;
+    height: 2em;
+    padding-top: 3px;
+}
+
