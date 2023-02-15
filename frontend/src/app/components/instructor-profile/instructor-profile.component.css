@@ -1,0 +1,22 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.right {
+    align-self: flex-start;
+    margin-top: 4rem;
+}
+
+.reviews-container {
+    margin: 3rem;
+}

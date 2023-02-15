@@ -1,3 +1,4 @@
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 // System Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,8 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
+
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,6 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -56,7 +60,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
   ],
   declarations: [
     AppComponent,
@@ -69,6 +74,8 @@ import { MatChipsModule } from '@angular/material/chips';
     TopTagsComponent,
     ProfessorDetailComponent,
     InstructorReviewComponent,
+    InstructorProfileComponent,
+    RatingBarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
