@@ -1,0 +1,31 @@
+<mat-card [style.margin.rem]="1" [style.padding.rem]="1">
+    <mat-card-title
+      >Write a review <span style="color: red">*</span></mat-card-title
+    >
+    <mat-card-content>
+      <div mat-subheader style="display: flex; align-items: center; margin: 8px">
+        <mat-icon style="margin-right: 4px">error</mat-icon> Your review could be
+        removed if you use profanity or derogatory terms.
+      </div>
+  
+      <mat-form-field appearance="fill" [style.width.px]="600">
+        <mat-label>Enter your review here</mat-label>
+        <textarea
+          name="reviewInput"
+          [(ngModel)]="reviewText"
+          (input)="typed($event)"
+          #reviewInput="ngModel"
+          [style.resize]="'none'"
+          matInput
+          [attr.maxlength]="maxInputLength"
+          rows="10"
+          noresize
+          required
+        ></textarea>
+        <p>{{ typedCharsLength }}/{{ maxInputLength }}</p>
+        <mat-error *ngIf="reviewInput.errors?.['required']">
+          Review is required
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
