@@ -1,4 +1,7 @@
-<p>How do you rate this teacher</p>
-<ngb-rating [max]="5" (click)="getRating" [(rate)]="rating" [readonly]="false" [formControl]="ratingcontrol"></ngb-rating>
-
-<h2>{{ rating }}</h2>
+<ngb-rating
+  [max]="5"
+  (click)="(getRating)"
+  [(rate)]="rating"
+  [readonly]="false"
+  [formControl]="ratingcontrol"
+></ngb-rating>
