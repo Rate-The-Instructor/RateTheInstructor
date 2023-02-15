@@ -29,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { TopTagsComponent } from './components/top-tags/top-tags.component';
     NavBarComponent,
     InstructorReviewComponent,
     InstructorReviewInputComponent,
-    TopTagsComponent
+    TopTagsComponent,
+    ProfessorDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
