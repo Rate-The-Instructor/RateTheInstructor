@@ -1,4 +1,3 @@
-import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 // System Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +18,10 @@ import { InstructorReviewDisplayComponent } from './components/instructor-review
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
+import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 
 // Angular material stuff
@@ -35,8 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatDividerModule} from '@angular/material/divider';
-import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 @NgModule({
   imports: [
@@ -75,9 +77,11 @@ import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.
     TopTagsComponent,
     ProfessorDetailComponent,
     InstructorReviewComponent,
+    InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
     NotFoundpageComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
