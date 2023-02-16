@@ -22,7 +22,7 @@ import { InstructorCardComponent } from './components/instructor-card/instructor
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
-
+import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,7 +41,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import { MatDividerModule } from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatDialogModule,
+    
 
     MatSidenavModule,
 
@@ -91,9 +95,11 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
 
     NotFoundpageComponent,
     InstructorsListPageComponent,
+    EditReviewPopupComponent,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[InstructorReviewInputComponent]
 })
 export class AppModule {}
