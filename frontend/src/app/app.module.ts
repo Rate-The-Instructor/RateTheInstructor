@@ -23,7 +23,6 @@ import { InstructorProfileComponent } from './components/instructor-profile/inst
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
-
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -39,7 +38,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
-
+import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 
 @NgModule({
   imports: [
@@ -65,7 +64,6 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-
   ],
   declarations: [
     AppComponent,
@@ -83,7 +81,7 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     RatingBarComponent,
     NotFoundpageComponent,
     InstructorsListPageComponent,
-
+    CommentSectionComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
