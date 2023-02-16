@@ -36,7 +36,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatSidenavModule,
   ],
   declarations: [
     AppComponent,
@@ -76,6 +78,7 @@ import {MatDividerModule} from '@angular/material/divider';
     InstructorReviewComponent,
     InstructorProfileComponent,
     RatingBarComponent,
+    SidenavComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
