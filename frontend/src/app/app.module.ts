@@ -26,6 +26,13 @@ import { ReportTableComponent } from './components/report-table/report-table.com
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
 
+import { ReviewTableComponent } from './components/review-table/review-table.component';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
+
+import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
+
+
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -39,9 +46,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+
+import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -69,6 +85,11 @@ import {MatTableModule} from '@angular/material/table';
     MatDividerModule,
     MatTableModule,
 
+    MatTableModule,
+    MatDialogModule,
+    MatSidenavModule,
+
+
   ],
   declarations: [
     AppComponent,
@@ -84,12 +105,20 @@ import {MatTableModule} from '@angular/material/table';
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
+
+    SidenavComponent,
+
     NotFoundpageComponent,
     InstructorsListPageComponent,
     ReportTableComponent,
+    CommentSectionComponent,
+
+    ReviewTableComponent,
+    EditReviewPopupComponent,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[InstructorReviewInputComponent]
 })
 export class AppModule {}

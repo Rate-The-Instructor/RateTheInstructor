@@ -7,6 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
+import { ReviewTableComponent } from './components/review-table/review-table.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'rate/:instructorId', component: InstructorReviewInputComponent },
   { path: 'instructors/:instructorId', component: InstructorProfileComponent },
   { path: 'instructors', component: InstructorsListPageComponent },
-  { path: 'admin', component: ReportTableComponent },
+
   { path: '**', component: NotFoundpageComponent },
 ];
 

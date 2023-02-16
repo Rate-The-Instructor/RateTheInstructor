@@ -1,0 +1,29 @@
+.example-container {
+    width: 250px;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .button {
+    height: 3em;
+    width: 80%;
+    text-align: left;
+    color: white;
+    border: none;
+    margin: .3em;
+  }
+  
