@@ -37,6 +37,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+
 import { MatDividerModule } from '@angular/material/divider';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
@@ -66,6 +69,8 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     MatCardModule,
     MatDividerModule,
 
+    MatSidenavModule,
+
   ],
   declarations: [
     AppComponent,
@@ -81,6 +86,9 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
+
+    SidenavComponent,
+
     NotFoundpageComponent,
     InstructorsListPageComponent,
 
