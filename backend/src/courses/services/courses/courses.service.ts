@@ -74,8 +74,7 @@ export class CoursesService {
     try {
       course = await this.courseModel.findById(id);
     } catch (err) {
-      console.log(err);
-      throw err.reason;
+      throw err;
     }
     if (!course) {
       throw new NotFoundException('Course Not Found');

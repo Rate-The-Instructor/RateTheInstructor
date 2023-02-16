@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoursesModule } from './courses/courses.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { InstructorsModule } from './instructors/instructors.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       { dbName: 'RateTheInstructor' },
     ),
     CoursesModule,
+    InstructorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
