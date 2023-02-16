@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'rate/:instructorId', component: InstructorReviewInputComponent },
   { path: 'instructors/:instructorId', component: InstructorProfileComponent },
   { path: 'instructors', component: InstructorsListPageComponent },
-
   { path: '**', component: NotFoundpageComponent },
 ];
 
