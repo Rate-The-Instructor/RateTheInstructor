@@ -23,11 +23,13 @@ import { InstructorProfileComponent } from './components/instructor-profile/inst
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
+
 import { ReviewTableComponent } from './components/review-table/review-table.component';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
 
 import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
+
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -42,6 +44,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+
+import { MatDividerModule } from '@angular/material/divider';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
@@ -73,6 +80,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+
     MatTableModule,
     MatDialogModule,
     MatSidenavModule,
@@ -98,10 +106,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 
     NotFoundpageComponent,
     InstructorsListPageComponent,
+    CommentSectionComponent,
 
     ReviewTableComponent,
     EditReviewPopupComponent,
-
 
   ],
   providers: [],
