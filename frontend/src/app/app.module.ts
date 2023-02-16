@@ -22,6 +22,8 @@ import { InstructorCardComponent } from './components/instructor-card/instructor
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
+import { ReportTableComponent } from './components/report-table/report-table.component';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
 
 import { ReviewTableComponent } from './components/review-table/review-table.component';
@@ -46,6 +48,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 
@@ -80,6 +83,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
 
     MatTableModule,
     MatDialogModule,
@@ -106,6 +110,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
     NotFoundpageComponent,
     InstructorsListPageComponent,
+    ReportTableComponent,
     CommentSectionComponent,
 
     ReviewTableComponent,
