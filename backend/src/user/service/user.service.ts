@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { User } from '../interface/user.interface';
 
 
+
 @Injectable()
 export class UserService {
     constructor( @InjectModel("User") private userModel : Model<User>){}
