@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
 import { ReviewTableComponent } from './components/review-table/review-table.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
@@ -19,10 +20,9 @@ const routes: Routes = [
 
   { path: 'admin/reviews', component: ReviewTableComponent },
   { path: 'admin/reports', component: ReportTableComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '**', component: NotFoundpageComponent },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

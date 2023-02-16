@@ -26,7 +26,7 @@ import { ReportTableComponent } from './components/report-table/report-table.com
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 import { ReviewTableComponent } from './components/review-table/review-table.component';
 import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
-
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
@@ -47,16 +47,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
-import { MatDividerModule } from '@angular/material/divider';
-import { MatTableModule } from '@angular/material/table';
-import { MatSidenavModule } from '@angular/material/sidenav';
-
-import { MatDialogModule } from '@angular/material/dialog';
-
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -88,6 +83,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatDialogModule,
     MatSidenavModule,
+    MatTabsModule,
 
 
   ],
@@ -118,6 +114,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
     DeletePopupComponent,
     AdminPanelComponent,
+    UserProfileComponent,
 
 
   ],

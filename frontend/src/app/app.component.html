@@ -1,13 +1,12 @@
 <app-nav-bar
-  style="position: sticky; top: 0; z-index: 12; width: 100%"
+  style="position: fixed; top: 0; z-index: 12; width: 100%"
 ></app-nav-bar>
 
-<div *ngIf="!isAdminPanel">
+<div *ngIf="!isAdminPanel" style="margin-top: 5rem;">
   <router-outlet></router-outlet>
 </div>
-{{isAdminPanel}}
 
-<mat-sidenav-container *ngIf="isAdminPanel">
+<mat-sidenav-container *ngIf="isAdminPanel"  style="margin-top: 5rem;">
   <mat-sidenav class="mat-elevation-z8" mode="side" opened>
     <h1 style="margin: 2rem 0; font-weight: bolder;">Admin Panel</h1>
     <button routerLink="/admin/reports" routerLinkActive="activeAdminLink" mat-button class="menu-button" style="color: white; font-size: 1.3rem;">
