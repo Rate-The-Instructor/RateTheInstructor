@@ -1,4 +1,43 @@
 
+<<<<<<< HEAD
 <div>
     <router-outlet></router-outlet>
+=======
+<div *ngIf="!isAdminPanel" style="margin-top: 5rem;">
+  <router-outlet></router-outlet>
+>>>>>>> main
 </div>
+
+<mat-sidenav-container *ngIf="isAdminPanel"  style="margin-top: 5rem;">
+  <mat-sidenav class="mat-elevation-z8" mode="side" opened>
+    <h1 style="margin: 2rem 0; font-weight: bolder;">Admin Panel</h1>
+    <button routerLink="/admin/reports" routerLinkActive="activeAdminLink" mat-button class="menu-button" style="color: white; font-size: 1.3rem;">
+        <mat-icon style="color: white; font-size: 1.3rem;">rate_review</mat-icon>
+        <span>Reports</span>
+    </button>
+
+    <button routerLink="/admin/reviews" routerLinkActive="activeAdminLink" mat-button class="menu-button" style="color: white; font-size: 1.3rem;">
+      <mat-icon style="color: white; font-size: 1.4rem; margin-right: 1rem;">event_note</mat-icon>
+      <span>Reviews</span>
+  </button>
+
+  <button routerLinkActive="activeAdminLink" mat-button class="menu-button" style="color: white; font-size: 1.3rem;">
+    <mat-icon style="color: white; font-size: 1.4rem; margin-right: 1rem;">person</mat-icon>
+    <span>Instructors</span>
+  </button>
+
+  <button routerLinkActive="activeAdminLink" mat-button class="menu-button" style="color: white; font-size: 1.3rem;">
+    <mat-icon style="color: white; font-size: 1.4rem; margin-right: 1rem;">people</mat-icon>
+    <span>Students</span>
+</button>
+
+
+</mat-sidenav>
+  <mat-sidenav-content style="left: 3%; top: 2%;">
+    <div style="position: sticky; top: 0%; background-color: white; width: 100%; z-index: 10;">
+      <h1>Reports</h1>
+      <mat-divider></mat-divider>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

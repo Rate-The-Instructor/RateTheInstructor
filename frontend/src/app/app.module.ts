@@ -24,12 +24,14 @@ import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
-
-
 import { ReviewTableComponent } from './components/review-table/review-table.component';
-
-
 import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { HomeComponent } from "./components/home/home.component";
 
 
 // Angular material stuff
@@ -46,15 +48,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
-import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
-
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-
 import { MatDividerModule } from '@angular/material/divider';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HomeComponent } from './components/home/home.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   imports: [
@@ -85,6 +84,7 @@ import { HomeComponent } from './components/home/home.component';
     MatTableModule,
     MatDialogModule,
     MatSidenavModule,
+    MatTabsModule,
 
 
   ],
@@ -113,6 +113,11 @@ import { HomeComponent } from './components/home/home.component';
     ReviewTableComponent,
     EditReviewPopupComponent,
     HomeComponent,
+
+    DeletePopupComponent,
+    AdminPanelComponent,
+    UserProfileComponent,
+
 
   ],
   providers: [],
