@@ -8,8 +8,10 @@ import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
 import { ReviewTableComponent } from './components/review-table/review-table.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'rate/:instructorId', component: InstructorReviewInputComponent },
