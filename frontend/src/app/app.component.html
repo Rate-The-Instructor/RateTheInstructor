@@ -1,11 +1,5 @@
-
-<<<<<<< HEAD
-<div>
-    <router-outlet></router-outlet>
-=======
-<div *ngIf="!isAdminPanel" style="margin-top: 5rem;">
+<div *ngIf="!isAdminPanel">
   <router-outlet></router-outlet>
->>>>>>> main
 </div>
 
 <mat-sidenav-container *ngIf="isAdminPanel"  style="margin-top: 5rem;">
