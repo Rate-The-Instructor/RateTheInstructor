@@ -1,0 +1,146 @@
+<div class="container">
+  <div matListItemTitle style="margin: 0" class="mat-headline-3">
+    Rate: <strong>Abebe Bekele</strong>
+  </div>
+  <div class="mat-body-1" matListItemLine>Addis Ababa University</div>
+
+  <!-- Select course -->
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >Select Course <span style="color: red">*</span></mat-card-title
+    >
+    <mat-card-content>
+      <mat-form-field
+        style="margin-right: 4px; width: 320px"
+        appearance="fill"
+        class="width-25"
+      >
+        <mat-label>Course</mat-label>
+        <mat-select [(ngModel)]="ratingData.course">
+          <mat-option value="Software Engineering">
+            Software Engineering
+          </mat-option>
+          <mat-option value="Electrical Engineering">
+            Electrical Engineering
+          </mat-option>
+          <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
+          <mat-option value="Mechanical Engineering">
+            Mechanical Engineering</mat-option
+          >
+          <mat-option value="Chemical Engineering">
+            Chemical Engineering
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >How would you rate this instructor</mat-card-title
+    >
+    <mat-card-content style="margin-left: 10rem">
+      <app-rating-system></app-rating-system>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >Would you like this instructor to teach you again?</mat-card-title
+    >
+    <mat-card-content style="margin-left: 10rem">
+      <mat-radio-group
+        [(ngModel)]="ratingData.teachAgain"
+        aria-label="Select an option"
+      >
+        <mat-radio-button style="margin-right: 2rem" value="YES"
+          >YES</mat-radio-button
+        >
+        <mat-radio-button value="NO">NO</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >Did this instructor use textbooks?</mat-card-title
+    >
+    <mat-card-content style="margin-left: 10rem">
+      <mat-radio-group
+        [(ngModel)]="ratingData.useTextBook"
+        aria-label="Select an option"
+      >
+        <mat-radio-button style="margin-right: 2rem" value="YES"
+          >YES</mat-radio-button
+        >
+        <mat-radio-button value="NO">NO</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >Was attendance mandatory?</mat-card-title
+    >
+    <mat-card-content style="margin-left: 10rem">
+      <mat-radio-group
+        [(ngModel)]="ratingData.attendanceMandatory"
+        aria-label="Select an option"
+      >
+        <mat-radio-button style="margin-right: 2rem" value="YES"
+          >YES</mat-radio-button
+        >
+        <mat-radio-button value="NO">NO</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Select grade -->
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >What was your grade for this course?
+      <span style="color: red">*</span></mat-card-title
+    >
+    <mat-card-content>
+      <mat-form-field
+        style="margin-right: 4px; width: 320px"
+        appearance="fill"
+        class="width-25"
+      >
+        <mat-label>Course grade</mat-label>
+        <mat-select [(ngModel)]="ratingData.gradeRevieved">
+          <mat-option value="A"> A </mat-option>
+          <mat-option value="B"> B </mat-option>
+          <mat-option value="C">C</mat-option>
+          <mat-option value="D"> D</mat-option>
+          <mat-option value="F"> F </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin: 2rem; padding: 1rem">
+    <mat-card-title style="margin-bottom: 2rem"
+      >Select tags that you think will apply to the instructor?</mat-card-title
+    >
+    <mat-card-content>
+      <mat-chip-listbox selectable multiple>
+        <mat-chip
+        *ngFor="let tag of tags"
+          style="cursor: pointer"
+          #c="matChip"
+          (click)="toggleSelection(c)"
+          [value]="tag"
+        >
+          {{tag}}
+        </mat-chip>
+      </mat-chip-listbox>
+    </mat-card-content>
+  </mat-card>
+
+  <app-instructor-review></app-instructor-review>
+
+  <div style="width: 70%; display: flex; justify-content: center">
+    <button mat-raised-button color="primary" style="width: 200px; height: 60px;">Submit Review</button>
+  </div>
+</div>
