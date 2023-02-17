@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+.side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: .5rem;
+    
+}
+
+.disc{
+  width: 12%;
+
+}
+
+/* The bar container */
+.bar-container {
+  width: 50%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  height: 2rem;
+}
+
+/* Individual bars */
+.bar {background-color: rgba(0, 47, 255, 0.823);}
+
+.bar-5 {width: 100%; height: 2rem;}
+.bar-4 {width: 40%; height: 2rem;}
+.bar-3 {width: 0%; height: 2rem;}
+.bar-2 {width: 0%; height: 2rem;}
+.bar-1 {width: 40%; height: 2rem;}
+
+
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 500px) {
+    .bar-container{
+      width: 15%;
+    }
+}

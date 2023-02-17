@@ -1,3 +1,4 @@
+// System Imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -12,10 +13,18 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
-import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
 import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
+import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
+import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
+import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
+import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
+import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
+import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
-// Angular-material stuff
+
+// Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -28,16 +37,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { TopTagsComponent } from './components/top-tags/top-tags.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
 
 @NgModule({
   imports: [
-    BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
+    BrowserModule,
 
     // Angular material
     MatFormFieldModule,
@@ -45,13 +56,16 @@ import { TopTagsComponent } from './components/top-tags/top-tags.component';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    MatChipsModule,
+
     MatRadioModule,
     MatGridListModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
-    MatChipsModule,
+    MatDividerModule,
+
   ],
   declarations: [
     AppComponent,
@@ -59,9 +73,17 @@ import { TopTagsComponent } from './components/top-tags/top-tags.component';
     RatingSystemComponent,
     LoginComponent,
     NavBarComponent,
-    InstructorReviewComponent,
+    InstructorReviewDisplayComponent,
     InstructorReviewInputComponent,
-    TopTagsComponent
+    TopTagsComponent,
+    ProfessorDetailComponent,
+    InstructorReviewComponent,
+    InstructorCardComponent,
+    InstructorProfileComponent,
+    RatingBarComponent,
+    NotFoundpageComponent,
+    InstructorsListPageComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

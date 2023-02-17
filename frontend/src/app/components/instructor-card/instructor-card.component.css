@@ -1,0 +1,82 @@
+.professor{
+    width: 70%;
+    position: relative;
+    display: flex;
+    padding: 14px 15px;
+    background-color: rgb(247, 247, 247);
+    align-items: center;
+}
+
+.prof-card-num-rating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+h4{
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.val{
+    align-self: center;
+    background-color: rgba(255, 255, 0);
+    text-align: center;
+    height: 65px;
+    line-height:36px;
+    margin-bottom: 8px;
+    padding: 14px 10px;
+    width: 72px;
+    font-size: 32px;
+    font-family: "poppins",sans-serif;
+}
+
+.prof-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    margin: 2px 0;
+}
+.name{
+    font-size: 20px;
+    font-style: normal;
+    line-height: 24px;
+    margin-bottom: 9px;
+    text-align: left;
+    font-family: 'poppins', sans-serif;
+    font-weight: 800;
+}
+
+.stat{
+    display: flex;
+    margin: 10px 0;
+}
+
+.percentage{
+    display: flex;
+    padding-right: 2px;
+}
+
+.difficulty{
+    display: flex;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+.probab,.level-diff{
+    margin-bottom: 0;
+    font-size: 1.3em;
+    margin-right: 5px;
+    text-align: center;
+    font-weight: 900;
+}
+.btn-container{
+    align-self: baseline;
+    width: 40%;
+}
+.bookmark{
+    position: absolute;
+    top: 0;
+    right: 0;  
+}
