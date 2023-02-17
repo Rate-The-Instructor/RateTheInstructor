@@ -1,7 +1,8 @@
-export interface Department{
-    id?:string;
-    departmentID:string;
-    departmentName:string;
-    course:string;
-    instructor:string;
+import { Document } from 'mongoose';
+
+export interface IDepartment extends Document {
+  departmentID: string;
+  departmentName: string;
+  course: string;
+  instructor: string;
 }
