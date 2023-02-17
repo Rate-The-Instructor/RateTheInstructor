@@ -1,55 +1,68 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from '../interface/user.interface';
-
-
+import { IUser } from '../interface/user.interface';
+import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
+import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UserService {
-    constructor( @InjectModel("User") private userModel : Model<User>){}
-    async findAll():Promise<User[]>{
-      try{
+  constructor(@InjectModel('User') private userModel: Model<IUser>) {}
+  async findAll(): Promise<IUser[]> {
+    try {
+      return await this.userModel.find();
+    } catch (err) {
+      throw err;
+    }
+  }
+  async findOne(id: string): Promise<IUser> {
+    try {
+      return await this.userModel.findOne({ _id: id }, { password: 0 });
+    } catch (err) {
+      throw err;
+    }
+  }
 
-        return await this.userModel.find();
-      }
-      catch (err){
-        throw err;
-      }
+  async findByUsername(username: string): Promise<IUser> {
+    try {
+      return await this.userModel.findOne({ username }, { password: 0 });
+    } catch (err) {
+      throw err;
+    }
+  }
 
-      }
-    async findOne(id:string):Promise<User>{
-        try{
-          return await this.userModel.findOne({_id:id});
-        }
-        catch (err){
-          throw err
-      }
-      }
+  async hashAndSave(user: IUser) {
+    const salt = 10;
+    let savedUser: IUser;
+    let password: string = await bcrypt.hash(user.password, salt);
+    user.password = password;
+    savedUser = await user.save();
+    return savedUser;
+  }
 
-    async create(department:User):Promise<User>{
-        try{
-          const new_department= new this.userModel(department);
-          return await new_department.save();
-        }
-        catch (err){
-          throw err;
-      }
-      }
-    async delete(id:string):Promise<User>{
-        try{
-          return await this.userModel.findByIdAndDelete({_id:id})
-        }
-        catch (err){
-          throw err;
-      }
-      }
+  async create(createDto: CreateUserDto): Promise<IUser> {
+    try {
+      const user = new this.userModel(createDto);
+      return await this.hashAndSave(user);
+    } catch (err) {
+      throw err;
+    }
+  }
+  async delete(id: string): Promise<IUser> {
+    try {
+      return await this.userModel.findByIdAndDelete(id, { password: 0 });
+    } catch (err) {
+      throw err;
+    }
+  }
 
-    async update(id:string, department:User):Promise<User>{
-        try{
-          return await this.userModel.findByIdAndUpdate(id,department,{new:true})
-        }
-        catch (err){
-          throw err;
-      }
-      }
+  async update(id: string, updateDto: UpdateUserDto): Promise<IUser> {
+    try {
+      return await this.userModel.findByIdAndUpdate(id, updateDto, {
+        new: true,
+        password: 0,
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
 }
