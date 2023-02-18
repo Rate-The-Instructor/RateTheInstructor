@@ -31,7 +31,7 @@ export class InstructorsService {
     let instructor: IInstructor;
     try {
       instructor = new this.instructorModel(instructorDto);
-      instructor.save();
+      await instructor.save();
       await this.departmentService.addInstructor(
         instructorDto.department,
         instructor.id,
@@ -135,7 +135,9 @@ export class InstructorsService {
     try {
       const instructor = await this.getInstructor(instructorId);
       instructor.ratings.push(rating.id);
-      instructor.save();
+      this.rateInstructor(rating, 'addRating');
+      this.sortTags(instructor);
+      await instructor.save();
       return instructor;
     } catch (err) {
       throw err;
@@ -145,7 +147,7 @@ export class InstructorsService {
     try {
       const instructor = await this.getInstructor(instructorId);
       instructor.courses.push(course.id);
-      instructor.save();
+      await instructor.save();
       return instructor;
     } catch (err) {
       throw err;
@@ -158,21 +160,84 @@ export class InstructorsService {
       instructor.courses = instructor.courses.filter(
         (course) => course.toString() !== courseId,
       );
-      instructor.save();
+      await instructor.save();
       return instructor;
     } catch (err) {
       throw err;
     }
   }
 
-  async deleteRating(instructorId: string, ratingId: string) {
+  async deleteRating(instructorId: string, deletedRating: IRating) {
     try {
       const instructor: IInstructor = await this.getInstructor(instructorId);
       instructor.ratings = instructor.ratings.filter(
-        (rating) => rating.toString() !== ratingId,
+        (rating) => rating.toString() !== deletedRating.id,
       );
-      instructor.save();
+      this.rateInstructor(deletedRating, 'deleteRating');
+      this.sortTags(instructor);
+      await instructor.save();
       return instructor;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async updateRating(
+    rating: IRating,
+    instructor: IInstructor,
+    operationType: string,
+  ) {
+    let sign: number;
+    sign = operationType == 'addRating' ? 1 : -1;
+
+    let prevOverall = instructor.overallRating * instructor.totalRating;
+    let prevDifficulty = instructor.difficultyRating * instructor.totalRating;
+
+    instructor.totalRating += 1 * sign;
+    await instructor.save();
+
+    let newOverall =
+      (prevOverall + rating.overallRating * sign) / instructor.totalRating;
+    let newDifficulty =
+      (prevDifficulty + rating.difficultyRating * sign) /
+      instructor.totalRating;
+    return { newOverall, newDifficulty };
+  }
+  updateTags(rating: IRating, instructor: IInstructor, operationType: string) {
+    let tags = rating.tags;
+    let sign: number;
+    sign = operationType == 'addRating' ? 1 : -1;
+    tags.forEach((tagName: string) => {
+      instructor.tagCounter.forEach((element) => {
+        if (element.name === tagName) {
+          element.score += sign;
+        }
+      });
+    });
+  }
+  sortTags(instructor: IInstructor) {
+    let instructorTags = instructor.tagCounter;
+    instructorTags.sort((a, b) => b.score - a.score);
+    instructor.tagCounter = instructorTags;
+  }
+  async rateInstructor(rating: IRating, operationType: string) {
+    let instructorId = rating.instructorId;
+    let instructor: IInstructor;
+    try {
+      instructor = await this.getInstructor(instructorId);
+    } catch (err) {
+      throw err;
+    }
+    let { newOverall, newDifficulty } = await this.updateRating(
+      rating,
+      instructor,
+      operationType,
+    );
+    instructor.overallRating = newOverall;
+    instructor.difficultyRating = newDifficulty;
+    this.updateTags(rating, instructor, operationType);
+
+    try {
+      await instructor.save();
     } catch (err) {
       throw err;
     }

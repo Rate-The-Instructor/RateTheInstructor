@@ -148,7 +148,7 @@ export class CoursesService {
       } else {
         course.instructors = [instructor.id];
       }
-      course.save();
+      await course.save();
       return course;
     } catch (err) {
       console.log("can't add instructor");
@@ -163,7 +163,7 @@ export class CoursesService {
         (instructor) => instructor.toString() !== instructorId,
       );
 
-      course.save();
+      await course.save();
       return course;
     } catch (err) {
       throw err;

@@ -4,11 +4,11 @@ export interface IInstructor extends Document {
   firstName: string;
   lastName: string;
   courses: string[];
-  totalRating: Number;
-  overallRating: Number;
-  difficultyRating: Number;
+  totalRating: number;
+  overallRating: number;
+  difficultyRating: number;
   ratings: string[];
   department: string;
   ratingDistribution: object;
-  tagCounter: string;
+  tagCounter: [{ name: String; score: number }];
 }
