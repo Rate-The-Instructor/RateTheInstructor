@@ -56,6 +56,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { InstructorsTableComponent } from './components/instructors-table/instructors-table.component';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
+import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
+import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
 
 
 
@@ -124,6 +126,8 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
     InstructorsTableComponent,
     StudentsTableComponent,
     ViewCommentComponent,
+    EditPopupComponent,
+    InstructoreditComponent,
 
 
   ],

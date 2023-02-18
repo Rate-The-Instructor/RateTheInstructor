@@ -1,4 +1,9 @@
 button{
-    margin-left: 50%;
     margin-bottom: 1rem;
+    margin-right: .4rem;
+}
+
+.btn{
+    display: flex;
+    justify-content: flex-end;
 }
