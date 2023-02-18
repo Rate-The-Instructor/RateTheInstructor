@@ -1,11 +1,31 @@
 <div class="container">
+  <mat-menu #menu="matMenu" class="menuItems">
+    <div class="button-class create-button">
+      <button class="delete" mat-button color="primary" aria-label="edit icon">
+        <span><mat-icon>create</mat-icon> Create</span>
+      </button>
+    </div>
+    <div class="button-class flag-button">
+      <button mat-button color="warn" aria-label="report button">
+        <span
+          ><mat-icon class="material-icons">outlined_flag</mat-icon>
+          Report</span
+        >
+      </button>
+    </div>
+    <div class="button-class delete-button">
+      <button class="delete" mat-button color="warn" aria-label="delete icon">
+        <span><mat-icon>delete</mat-icon> Delete</span>
+      </button>
+    </div>
+  </mat-menu>
   <div class="rates">
     <div class="quality">
-      <p style="text-align: center; font-weight: 900; margin: 0;">QUALITY</p>
+      <p style="text-align: center; font-weight: 900; margin: 0">QUALITY</p>
       <span id="quality">5.3</span>
     </div>
     <div class="difficulty">
-      <p style="text-align: center; font-weight: 900; margin: 0;">DIFFICULTY</p>
+      <p style="text-align: center; font-weight: 900; margin: 0">DIFFICULTY</p>
       <p id="difficulty">3.3</p>
     </div>
   </div>
@@ -14,7 +34,7 @@
       <div class="levelAndSubject">
         <div class="subject">Rating for the course: CS50</div>
       </div>
-      <div class="date" style="font-weight: 500;">Dec 23rd 2023</div>
+      <div class="date" style="font-weight: 500">Dec 23rd 2023</div>
     </div>
     <div class="review-part">
       <div class="attendance">Attendance: <strong>Not mandatory</strong></div>
@@ -42,11 +62,15 @@
           <mat-icon class="material-icons">thumb_down</mat-icon></button
         >5
       </div>
-      <div class="flag">
-        <button mat-icon-button>
-          <mat-icon class="material-icons">outlined_flag</mat-icon>
-        </button>
-      </div>
     </div>
+  </div>
+  <div class="dropDown">
+    <a [matMenuTriggerFor]="menu">
+      <span>
+        <mat-icon>
+          <mat-icon>more_vert</mat-icon>
+        </mat-icon>
+      </span>
+    </a>
   </div>
 </div>
