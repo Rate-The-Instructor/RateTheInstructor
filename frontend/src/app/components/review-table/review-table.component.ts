@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeletePopupComponent } from '../delete-popup/delete-popup.component';
 
 
 const ELEMENT_DATA: any = [
@@ -22,5 +24,15 @@ const ELEMENT_DATA: any = [
 export class ReviewTableComponent {
   displayedColumns: string[] = ['position', 'review', 'instructor', 'date','buttons'];
   dataSource = [...ELEMENT_DATA];
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DeletePopupComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 }

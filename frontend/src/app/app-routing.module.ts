@@ -10,7 +10,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
+import { InstructorsTableComponent } from './components/instructors-table/instructors-table.component';
+import { StudentsTableComponent } from './components/students-table/students-table.component';
+
 import { HomeComponent } from "./components/home/home.component";
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +27,8 @@ const routes: Routes = [
 
   { path: 'admin/reviews', component: ReviewTableComponent },
   { path: 'admin/reports', component: ReportTableComponent },
+  { path: 'admin/instructors', component: InstructorsTableComponent },
+  { path: 'admin/students', component: StudentsTableComponent },
   { path: 'profile', component: UserProfileComponent },
   { path: '**', component: NotFoundpageComponent },
 ];

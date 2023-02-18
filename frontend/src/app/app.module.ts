@@ -53,6 +53,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
+import { InstructorsTableComponent } from './components/instructors-table/instructors-table.component';
+import { StudentsTableComponent } from './components/students-table/students-table.component';
 
 
 @NgModule({
@@ -117,6 +119,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     DeletePopupComponent,
     AdminPanelComponent,
     UserProfileComponent,
+    InstructorsTableComponent,
+    StudentsTableComponent,
 
 
   ],
