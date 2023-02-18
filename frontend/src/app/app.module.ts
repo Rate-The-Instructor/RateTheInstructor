@@ -31,6 +31,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { HomeComponent } from "./components/home/home.component";
 
 
 // Angular material stuff
@@ -111,6 +112,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 
     ReviewTableComponent,
     EditReviewPopupComponent,
+    HomeComponent,
 
     DeletePopupComponent,
     AdminPanelComponent,
