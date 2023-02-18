@@ -29,7 +29,7 @@ export class UserService {
 
   async findByUsername(username: string): Promise<IUser> {
     try {
-      return await this.userModel.findOne({ username }, { password: 0 });
+      return await this.userModel.findOne({ username });
     } catch (err) {
       throw err;
     }
