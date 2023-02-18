@@ -6,6 +6,15 @@ a {
 
 } 
 
+.logo{
+    width: 200px;
+    height: 50px;
+    margin-right: 5px;
+}
+.logo:hover{
+    cursor: pointer;
+}
+
 .container{
     display: flex;
     align-items: center;
