@@ -55,6 +55,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import { InstructorsTableComponent } from './components/instructors-table/instructors-table.component';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
 
@@ -122,6 +123,7 @@ import { StudentsTableComponent } from './components/students-table/students-tab
     UserProfileComponent,
     InstructorsTableComponent,
     StudentsTableComponent,
+    ViewCommentComponent,
 
 
   ],
