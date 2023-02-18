@@ -16,10 +16,6 @@
     flex-direction: column;
 }
 
-.reviews-container {
-    width: 80%;
-}
-
 .right {
     align-self: flex-start;
     margin-top: 4rem;

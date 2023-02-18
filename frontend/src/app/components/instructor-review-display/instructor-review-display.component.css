@@ -92,3 +92,7 @@ span {
   width: 100%;
   cursor: pointer;
 }
+
+.prof--name {
+  font-family: "Inconsolata", monospace;
+}
