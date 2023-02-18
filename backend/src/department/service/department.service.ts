@@ -94,7 +94,7 @@ export class DepartmentService {
       } else {
         department.courses = [courseId];
       }
-      department.save();
+      await department.save();
       return department;
     } catch (err) {
       throw err;
@@ -106,7 +106,7 @@ export class DepartmentService {
       department.courses = department.courses.filter(
         (course) => courseId !== course,
       );
-      department.save();
+      await department.save();
       return department;
     } catch (err) {
       throw err;
@@ -120,7 +120,7 @@ export class DepartmentService {
       } else {
         department.instructors = [instructorId];
       }
-      department.save();
+      await department.save();
       return department;
     } catch (err) {
       throw err;

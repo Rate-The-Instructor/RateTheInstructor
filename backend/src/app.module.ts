@@ -13,9 +13,12 @@ import { DepartmentModule } from './department/department.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017', {
-      dbName: 'RateTheInstructor',
-    }),
+    MongooseModule.forRoot(
+      'mongodb+srv://amanuel:test1234@cluster0.8yo5agg.mongodb.net/?retryWrites=true&w=majority',
+      {
+        dbName: 'RateTheInstructor',
+      },
+    ),
     ReportsModule,
     RatingsModule,
     AdminModule,

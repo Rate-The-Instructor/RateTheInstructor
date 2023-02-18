@@ -82,7 +82,7 @@ export class UserService {
       } else {
         user.ratings = [ratingId];
       }
-      user.save();
+      await user.save();
       return user;
     } catch (err) {
       throw err;
@@ -95,7 +95,7 @@ export class UserService {
       user.ratings = user.ratings.filter(
         (rating) => rating.toString() !== ratingId,
       );
-      user.save();
+      await user.save();
       return user;
     } catch (err) {
       throw err;

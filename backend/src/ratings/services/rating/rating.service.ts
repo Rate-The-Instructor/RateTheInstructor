@@ -103,7 +103,10 @@ export class RatingService {
     try {
       const deletedRating = await this.ratingModel.findByIdAndDelete(id).exec();
       await this.userService.deleteRating(deletedRating.userId, id);
-      await this.instructorService.deleteRating(deletedRating.instructorId, id);
+      await this.instructorService.deleteRating(
+        deletedRating.instructorId,
+        deletedRating,
+      );
       return deletedRating;
     } catch (err) {
       throw err;
