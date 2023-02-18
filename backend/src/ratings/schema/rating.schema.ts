@@ -36,6 +36,7 @@ export enum Answers {
   NO = 'no',
   SOMETIMES = 'sometimes',
   TOSOMEEXTENT = 'to some extent',
+  A = 'A',
 }
 
 // @Schema({ timestamps: true })

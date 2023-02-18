@@ -1,3 +1,7 @@
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ReportTableComponent } from './components/report-table/report-table.component';
+import { ReviewTableComponent } from './components/review-table/review-table.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,6 +17,10 @@ const routes: Routes = [
   { path: 'rate/:instructorId', component: InstructorReviewInputComponent },
   { path: 'instructors/:instructorId', component: InstructorProfileComponent },
   { path: 'instructors', component: InstructorsListPageComponent },
+
+  { path: 'admin/reviews', component: ReviewTableComponent },
+  { path: 'admin/reports', component: ReportTableComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '**', component: NotFoundpageComponent },
 ];
 

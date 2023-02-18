@@ -1,11 +1,7 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
-export class CreateDepartmentDto{
-    @IsNotEmpty()
-    readonly departmentID:string;
-    @IsNotEmpty()
-    readonly departmentName:string;
-    @IsNotEmpty()
-    readonly course:string;
-    @IsNotEmpty()
-    readonly instructor:string;
+import { IsString, IsNotEmpty } from 'class-validator';
+
+export class CreateDepartmentDto {
+  @IsNotEmpty()
+  @IsString()
+  readonly departmentName: string;
 }

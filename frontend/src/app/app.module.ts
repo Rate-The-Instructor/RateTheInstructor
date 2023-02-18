@@ -22,6 +22,15 @@ import { InstructorCardComponent } from './components/instructor-card/instructor
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { NotFoundpageComponent } from './components/not-foundpage/not-foundpage.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
+import { ReportTableComponent } from './components/report-table/report-table.component';
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { ReviewTableComponent } from './components/review-table/review-table.component';
+import { EditReviewPopupComponent } from './components/edit-review-popup/edit-review-popup.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 
 
 // Angular material stuff
@@ -37,8 +46,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -65,6 +78,13 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
+
+    MatTableModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatTabsModule,
+
 
   ],
   declarations: [
@@ -81,11 +101,25 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
+
+    SidenavComponent,
+
     NotFoundpageComponent,
     InstructorsListPageComponent,
+    ReportTableComponent,
+    CommentSectionComponent,
+
+    ReviewTableComponent,
+    EditReviewPopupComponent,
+
+    DeletePopupComponent,
+    AdminPanelComponent,
+    UserProfileComponent,
+
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[InstructorReviewInputComponent]
 })
 export class AppModule {}

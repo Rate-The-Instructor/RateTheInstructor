@@ -30,6 +30,6 @@ export class CoursesController {
   }
   @Get(':id')
   getUserById(@Param('id') id: string) {
-    return this.courseService.getUserById(id);
+    return this.courseService.getCourseById(id);
   }
 }

@@ -9,6 +9,7 @@ import { RatingsModule } from './ratings/ratings.module';
 import { CoursesModule } from './courses/courses.module';
 import { InstructorsModule } from './instructors/instructors.module';
 import { AdminModule } from './admin/admin.module';
+import { DepartmentModule } from './department/department.module';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { AdminModule } from './admin/admin.module';
     UserModule,
     CoursesModule,
     InstructorsModule,
-    AdminModule,
+    DepartmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

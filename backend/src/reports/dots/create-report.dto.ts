@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString, IsDate } from 'class-validator';
 export class CreateReportDto {
   @IsNotEmpty()
   @IsString()
-  reporterId: string;
+  userId: string;
 
   @IsNotEmpty()
   @IsString()
