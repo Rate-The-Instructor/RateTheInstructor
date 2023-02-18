@@ -14,6 +14,9 @@ a {
 .first{
     margin-left: .5rem;
 }
+.in{
+    font-size: medium;
+}
 ::ng-deep .searchBar {
     border-radius: .4rem;
     padding-left: .4rem;
