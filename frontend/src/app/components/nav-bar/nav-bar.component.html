@@ -1,20 +1,23 @@
-<mat-toolbar class="container" color="primary" class="mat-elevation-z8" >
+<mat-toolbar class="container" color="primary" class="mat-elevation-z8" style="position: sticky; top: 0; z-index: 40; width: 100%;">
   <span><mat-icon>eco</mat-icon> LetsPlay</span>
 
-  <a class="first" mat-button routerLink="instructors">Instructors</a>
+  <a class="first in" mat-raised-button color="primary" routerLink="instructors">Instructors</a>
   <input
     class="searchBar"
     matInput
     [(ngModel)]="searchTerm"
     placeholder="Search"
   />
+  <a class="first in" mat-flat-button  color="accent" routerLink="admin/reviews">Admin</a>
+   
 
   <div class="spacer"></div>
 
-  <a mat-button [matMenuTriggerFor]="menu" routerLink="user">
+  <a mat-button [matMenuTriggerFor]="menu">
     <span style="display: flex; align-items: center;"> Logged user<mat-icon>keyboard_arrow_down</mat-icon> </span>  </a
   >
   <mat-menu #menu="matMenu">
+    <a mat-menu-item color="warn" routerLink="profile">Profile</a>
     <a mat-menu-item color="warn">Log Out</a>
   </mat-menu>
   <a mat-stroked-button theme="forest" routerLink="login">Sign In</a>

@@ -35,6 +35,7 @@ export class ReportTableComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
+  
 
 
 
