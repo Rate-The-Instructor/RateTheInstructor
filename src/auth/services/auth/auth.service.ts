@@ -31,7 +31,7 @@ export class AuthService {
     const user = await this.userService.findByUsername(loginData.username);
 
     if (!user) {
-      throw new ForbiddenException('Access Denied');
+      throw new ForbiddenException('User Not Found');
     }
     console.log(user);
     console.log(loginData.password);
@@ -39,7 +39,7 @@ export class AuthService {
 
     if (!match) {
       console.log("passowrd don't match");
-      throw new ForbiddenException('Access Denied');
+      throw new ForbiddenException('Passwords Dont Match');
     }
 
     const token = await this.getToken(loginData.username, user._id);
