@@ -33,10 +33,17 @@ export const InstructorSchema = new mongoose.Schema(
     courses: {
       required: true,
       type: [mongoose.Types.ObjectId],
+      ref: 'Course',
     },
     department: {
       required: true,
       type: mongoose.Types.ObjectId,
+      ref: 'Department',
+    },
+
+    ratings: {
+      type: [mongoose.Types.ObjectId],
+      ref: 'Rating',
     },
     totalRating: {
       required: true,

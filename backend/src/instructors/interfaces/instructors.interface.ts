@@ -7,6 +7,7 @@ export interface IInstructor extends Document {
   totalRating: Number;
   overallRating: Number;
   difficultyRating: Number;
+  ratings: string[];
   department: string;
   ratingDistribution: object;
   tagCounter: string;
