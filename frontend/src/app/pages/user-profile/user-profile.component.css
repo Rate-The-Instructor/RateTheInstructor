@@ -7,11 +7,10 @@
 }
 
 .top {
-    top: 8%;
     z-index: 3; 
     position: sticky;
     background-color: white;
-    padding-top: 2rem;
+    padding-top: .6rem;
 }
 
 .bottom {
@@ -24,8 +23,8 @@
     display: flex;
     align-items: center;
     gap: 5rem;
-    font-size: 2rem;
-    margin-top: 3rem;
+    font-size: 1rem;
+    margin-top: 2rem;
     text-align: left;
 }
 

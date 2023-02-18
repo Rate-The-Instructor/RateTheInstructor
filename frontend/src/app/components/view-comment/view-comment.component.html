@@ -11,8 +11,7 @@
     <div class="date" style="font-weight: 500">Dec 23rd 2023</div>
     <div class="top-content">
       <div class="levelAndSubject">
-        <div class="subject">Comment for the course: CS50</div>
-        <div class="prof--name">Prof Jelani</div>
+        <div class="subject">Prof Jelani</div>
       </div>
       <mat-menu #menu="matMenu" class="menuItems">
         <div class="button-class create-button">
@@ -63,7 +62,7 @@
     </div>
   </div>
   <div class="dropDown">
-    <a [matMenuTriggerFor]="menu" routerLink="user">
+    <a [matMenuTriggerFor]="menu">
       <span>
         <mat-icon>
           <mat-icon>more_vert</mat-icon>
