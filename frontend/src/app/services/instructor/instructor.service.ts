@@ -10,14 +10,14 @@ import { InstructorInterface } from 'src/app/Interfaces/instructorGet';
 export class InstructorService {
   constructor(private http: HttpClient) {}
   private instructorUrl =
-    'https://ratetheinstructor-production.up.railway.app/api/instructors/';
+    'https://ratetheinstructor-production.up.railway.app/api/instructors';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
   getInstructors(): Observable<InstructorInterface[]> {
     return this.http.get<any>(this.instructorUrl);
   }
-  getInstructorsById(id: number): Observable<any> {
+  getInstructorsById(id: string): Observable<any> {
     const instructorIdUrl = `${this.instructorUrl}/${id}`;
     return this.http.get<any>(instructorIdUrl);
   }

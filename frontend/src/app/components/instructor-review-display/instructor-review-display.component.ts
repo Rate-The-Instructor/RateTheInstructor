@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../delete-popup/delete-popup.component';
 import { ReportPopupComponent } from '../report-popup/report-popup.component';
@@ -11,6 +11,8 @@ import { ReportPopupComponent } from '../report-popup/report-popup.component';
   styleUrls: ['./instructor-review-display.component.css']
 })
 export class InstructorReviewDisplayComponent {
+
+  @Input() rating!: any
 
   constructor(public dialog: MatDialog) {}
 

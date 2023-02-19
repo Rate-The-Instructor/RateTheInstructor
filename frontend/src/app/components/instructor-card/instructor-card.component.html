@@ -11,7 +11,7 @@
     <div class="department">{{ instructor.department }}</div>
   </div>
   <div class="prof-profile-button">
-    <button mat-raised-button routerLink="/instructors/34">
+    <button mat-raised-button [routerLink]="['/instructors', instructor._id]">
       Check {{ instructor.firstName }}&#x27;s Rating
     </button>
   </div>

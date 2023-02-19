@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 2rem;">
+<div class="container" style="margin-top: 2rem">
   <div class="profile-container">
     <div class="left">
       <app-professor-detail class="professor-detail"></app-professor-detail>
@@ -11,34 +11,26 @@
   <mat-tab-group>
     <mat-tab label="24 Reviews">
       <div class="reviews-container">
-        <h1>24 Reviews</h1>
+        <h1>{{ instructor.totalRating }} Reviews</h1>
         <mat-divider></mat-divider>
-        
+
         <app-instructor-review-display
-          class="review-display"
-          style="margin-bottom: 3rem"
-        ></app-instructor-review-display>
-        <app-instructor-review-display
-          class="review-display"
-          style="margin-bottom: 3rem"
-        ></app-instructor-review-display>
-        <app-instructor-review-display
+          *ngFor="let rating of instructor.ratings"
+          [rating]="rating"
           class="review-display"
           style="margin-bottom: 3rem"
         ></app-instructor-review-display>
       </div>
     </mat-tab>
-    <mat-tab label="5 Comments"> 
+    <mat-tab label="5 Comments">
       <div class="reviews-container">
-        <app-comment-section>
-        </app-comment-section>
+        <app-comment-section> </app-comment-section>
         <h1>24 Comments</h1>
         <mat-divider></mat-divider>
-        
+
         <app-view-comment></app-view-comment>
         <app-view-comment></app-view-comment>
       </div>
     </mat-tab>
   </mat-tab-group>
-  
 </div>

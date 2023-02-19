@@ -1,4 +1,5 @@
 export interface InstructorInterface {
+  _id: string;
   courses: string[];
   department: string;
   difficultyRating: number;
