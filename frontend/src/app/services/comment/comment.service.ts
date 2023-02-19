@@ -17,13 +17,12 @@ export class InstructorService {
   getInstructors(): Observable<InstructorInterface[]> {
     return this.http.get<any>(this.instructorUrl);
   }
-  getInstructorsById(id: string): Observable<any> {
+  getInstructorsById(id: number): Observable<any> {
     const instructorIdUrl = `${this.instructorUrl}/${id}`;
     return this.http.get<any>(instructorIdUrl);
   }
-  updateInstructor(id: string, instructor: any): Observable<any> {
-    const instructorIdUrl = `${this.instructorUrl}/${id}`;
-    return this.http.patch<any>(instructorIdUrl, instructor, this.httpOptions);
+  updateInstructor(instructor: any): Observable<any> {
+    return this.http.put<any>(this.instructorUrl, instructor, this.httpOptions);
   }
   addInstructor(instructor: any): Observable<any> {
     return this.http.post<any>(
