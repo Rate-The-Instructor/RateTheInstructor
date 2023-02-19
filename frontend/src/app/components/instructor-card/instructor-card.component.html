@@ -1,16 +1,18 @@
-<div class="professor">
+<div *ngIf="instructor" class="professor">
   <div class="prof-card-num-rating">
-    <h4 style="font-weight: bold;">RATING</h4>
+    <h4 style="font-weight: bold">RATING</h4>
     <div class="val">
-      <h2 style="font-weight: 900;">3.5</h2>
+      <h2 style="font-weight: 900">{{ instructor.overallRating }}</h2>
     </div>
-    <div style="font-weight: bold;">5 ratings</div>
+    <div style="font-weight: bold">{{ instructor.totalRating }} Ratings</div>
   </div>
   <div class="prof-info">
-    <div class="name">Phil Johnson</div>
-    <div class="department">Electrical Engineering</div>
+    <div class="name">{{ instructor.firstName }}</div>
+    <div class="department">{{ instructor.department }}</div>
   </div>
   <div class="prof-profile-button">
-    <button mat-raised-button routerLink="/instructors/34">Check Phil's profile</button>
+    <button mat-raised-button routerLink="/instructors/34">
+      Check {{ instructor.firstName }}&#x27;s Rating
+    </button>
   </div>
 </div>

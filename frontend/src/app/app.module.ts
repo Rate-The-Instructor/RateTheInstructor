@@ -31,8 +31,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CommentSectionComponent } from './components/components/comment-section/comment-section.component';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
-import { HomeComponent } from "./components/home/home.component";
-
+import { HomeComponent } from './components/home/home.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -51,18 +50,19 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 import { InstructorsTableComponent } from './components/instructors-table/instructors-table.component';
 import { StudentsTableComponent } from './components/students-table/students-table.component';
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
 import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -91,8 +91,6 @@ import { InstructoreditComponent } from './components/instructoredit/instructore
     MatDialogModule,
     MatSidenavModule,
     MatTabsModule,
-
-
   ],
   declarations: [
     AppComponent,
@@ -128,11 +126,9 @@ import { InstructoreditComponent } from './components/instructoredit/instructore
     ViewCommentComponent,
     EditPopupComponent,
     InstructoreditComponent,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[InstructorReviewInputComponent]
+  entryComponents: [InstructorReviewInputComponent],
 })
 export class AppModule {}
