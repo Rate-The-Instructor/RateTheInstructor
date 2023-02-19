@@ -102,11 +102,13 @@ export class RatingService {
   async deleteRating(id): Promise<IRating> {
     try {
       const deletedRating = await this.ratingModel.findByIdAndDelete(id).exec();
+
       await this.userService.deleteRating(deletedRating.userId, id);
       await this.instructorService.deleteRating(
         deletedRating.instructorId,
         deletedRating,
       );
+
       return deletedRating;
     } catch (err) {
       throw err;

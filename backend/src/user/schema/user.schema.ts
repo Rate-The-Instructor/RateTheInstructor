@@ -18,8 +18,8 @@ export class User {
   @Prop({ required: true, unique: true })
   username: string;
 
-  @Prop({ required: true })
-  department: string;
+  @Prop({ required: true, type: mongoose.Types.ObjectId, ref: 'Department' })
+  department;
 
   @Prop({ required: true, unique: true })
   schoolId: string;
