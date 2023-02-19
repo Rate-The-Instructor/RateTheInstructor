@@ -9,10 +9,14 @@ export class SignupComponent {
   hide = true;
 
   signUpData = {
+    firstname: '',
+    lastname: '',
+    username: '',
+    schoolId: '',
     email: '',
     password: '',
     department: '',
-    year: 1,
+    academicYear: 1,
   };
 
   ngOnInit() {}

@@ -6,11 +6,11 @@
   <mat-grid-tile>
     <div class="example-container">
       <mat-form-field appearance="fill" class="width-100">
-        <mat-label>Email address</mat-label>
+        <mat-label>Username</mat-label>
         <input
-          [(ngModel)]="loginData.email"
+          [(ngModel)]="loginData.username"
           matInput
-          placeholder="Ex. pat@example.com"
+          placeholder="Ex. abebe.se"
         />
       </mat-form-field>
       <br />
@@ -33,7 +33,7 @@
       </mat-form-field>
       <br />
       <span>
-        <button style="margin-right: 40px" mat-raised-button color="primary">
+        <button style="margin-right: 40px" mat-raised-button color="primary" (click)="handleSubmit()">
           Log In
         </button>
       </span>
