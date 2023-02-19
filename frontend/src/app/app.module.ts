@@ -60,11 +60,8 @@ import { EditPopupComponent } from './components/edit-popup/edit-popup.component
 import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
 import { ReportPopupComponent } from './components/report-popup/report-popup.component';
 
-import { HttpClientModule } from '@angular/common/http';
-
 @NgModule({
   imports: [
-    HttpClientModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -131,7 +128,6 @@ import { HttpClientModule } from '@angular/common/http';
     InstructoreditComponent,
 
     ReportPopupComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent],

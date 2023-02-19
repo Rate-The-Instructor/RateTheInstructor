@@ -11,20 +11,32 @@
       </ng-template>
       <div class="profile-row">
         <label>First name</label>
-        <input type="text" />
+        <input
+          [disabled]="clicked"
+          type="text"
+          [(ngModel)]="newUserData.firstname"
+        />
       </div>
       <div class="profile-row">
         <label>Last name</label>
-        <input matInput type="text" />
+        <input
+          [disabled]="clicked"
+          [(ngModel)]="newUserData.lastname"
+          type="text"
+        />
       </div>
       <div class="profile-row">
         <label>Email adress</label>
-        <input matInput type="text" />
+        <input
+          [disabled]="clicked"
+          [(ngModel)]="newUserData.email"
+          type="text"
+        />
       </div>
       <div class="profile-row">
         <label>Department</label>
-        
-        <select>
+
+        <select [disabled]="clicked" [(ngModel)]="newUserData.department">
           <option value="Software Engineering">Software Engineering</option>
           <option value="Electrical Engineering">Electrical Engineering</option>
           <option value="Mechanical Engineering">Mechanical Engineering</option>
@@ -36,7 +48,7 @@
       <div class="profile-row">
         <label>Year</label>
 
-        <select>
+        <select [disabled]="clicked" [(ngModel)]="newUserData.academicYear">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -44,7 +56,16 @@
           <option value="5">5</option>
         </select>
       </div>
+      <button
+        class="edit"
+        (click)="editSection()"
+        mat-raised-button
+        color="primary"
+      >
+        Edit
+      </button>
     </mat-tab>
+
     <mat-tab style="margin: 0 5rem">
       <ng-template mat-tab-label>
         <h1 style="font-weight: bolder">Ratings you gave</h1>
