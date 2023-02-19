@@ -29,7 +29,7 @@ export class CoursesController {
     return this.courseService.deleteCourse(id);
   }
   @Get(':id')
-  getUserById(@Param('id') id: string) {
+  getCourseById(@Param('id') id: string) {
     return this.courseService.getCourseById(id);
   }
 }

@@ -25,12 +25,12 @@ export class ReportsController {
     return this.reportService.getReportById(id);
   }
 
-  @Get('/review/:id')
+  @Get('/rating/:id')
   async getByReviewId(@Param('id') id: string) {
     return this.reportService.getReportByReview(id);
   }
 
-  @Get('/reporter/:id')
+  @Get('/user/:id')
   async getReviewByReporter(@Param('id') id: string) {
     return this.reportService.getReportByReporter(id);
   }
