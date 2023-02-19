@@ -5,6 +5,7 @@ import { IUser } from '../interface/user.interface';
 import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
 import * as bcrypt from 'bcrypt';
 import { RatingService } from 'src/ratings/services/rating/rating.service';
+import { roles } from '../schema/user.schema';
 @Injectable()
 export class UserService {
   constructor(
@@ -97,6 +98,26 @@ export class UserService {
       );
       await user.save();
       return user;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async promote(id: string) {
+    try {
+      await this.userModel.findByIdAndUpdate(id, {
+        role: roles.MODERATOR,
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async demote(id: string) {
+    try {
+      await this.userModel.findByIdAndUpdate(id, {
+        role: roles.USER,
+      });
     } catch (err) {
       throw err;
     }

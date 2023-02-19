@@ -7,6 +7,8 @@ import {
   Param,
   Put,
   Patch,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dto/user.dto';
 import { IUser } from '../interface/user.interface';
@@ -17,30 +19,42 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  findAll(): Promise<IUser[]> {
-    return this.userService.findAll();
+  async findAll(): Promise<IUser[]> {
+    return await this.userService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param() Param) {
-    return this.userService.findOne(Param.id);
+  async findOne(@Param() Param) {
+    return await this.userService.findOne(Param.id);
   }
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto): Promise<IUser> {
-    return this.userService.create(createUserDto);
+  async create(@Body() createUserDto: CreateUserDto): Promise<IUser> {
+    return await this.userService.create(createUserDto);
   }
 
   @Delete(':id')
-  delete(@Param() Param): Promise<IUser> {
-    return this.userService.delete(Param.id);
+  async delete(@Param() Param): Promise<IUser> {
+    return await this.userService.delete(Param.id);
   }
 
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id,
     @Body() updateUserdto: CreateUserDto,
   ): Promise<IUser> {
     return this.userService.update(id, updateUserdto);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('promote/:id')
+  async promote(@Param('id') id: string) {
+    await this.userService.promote(id);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('demote/:id')
+  async demote(@Param('id') id: string) {
+    await this.userService.demote(id);
   }
 }

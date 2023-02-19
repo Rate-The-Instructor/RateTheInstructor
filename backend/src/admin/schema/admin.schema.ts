@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-@Schema({ timestamps: true})
+@Schema({ timestamps: true })
 export class Admin {
   @Prop({ required: true })
   firstname: string;
@@ -10,10 +10,10 @@ export class Admin {
   username: string;
   @Prop({ required: true })
   email: string;
-  @Prop({ required: true , default:false})
+  @Prop({ required: true, default: false })
   status: boolean;
   @Prop({ required: true })
-  role: string;
+  role: string[];
   @Prop({ required: true })
   password: string;
 }
