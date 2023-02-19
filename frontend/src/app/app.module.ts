@@ -57,6 +57,7 @@ import { StudentsTableComponent } from './components/students-table/students-tab
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
 import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
+import { ReportPopupComponent } from './components/report-popup/report-popup.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -126,6 +127,9 @@ import { HttpClientModule } from '@angular/common/http';
     ViewCommentComponent,
     EditPopupComponent,
     InstructoreditComponent,
+
+    ReportPopupComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
