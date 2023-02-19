@@ -1,10 +1,52 @@
-<mat-grid-list style="margin-top: 14px" cols="1" rowHeight="500px">
+<mat-grid-list style="height: 100vh;" cols="1" rowHeight="500px">
   <br />
-  <h1 class="mat-headline-4" style="text-align: center">
-    <strong>Sign Up</strong> to rate your favorite instructors
-  </h1>
-  <mat-grid-tile>
+  <mat-grid-tile-header>
+    <h1 class="mat-headline-4" style="text-align: center">
+      <strong>Sign Up</strong> to rate your favorite instructors
+    </h1>
+  </mat-grid-tile-header>
+  <mat-grid-tile style="height: 100%;">
     <div class="example-container" style="width: 400px">
+      <!-- First name -->
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>First name</mat-label>
+        <input
+          [(ngModel)]="signUpData.firstname"
+          matInput
+          placeholder="John"
+        />
+      </mat-form-field>
+
+      <!-- Last name -->
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Last name</mat-label>
+        <input
+          [(ngModel)]="signUpData.lastname"
+          matInput
+          placeholder="Doe"
+        />
+      </mat-form-field>
+
+      <!-- username -->
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Create a username</mat-label>
+        <input
+          [(ngModel)]="signUpData.username"
+          matInput
+          placeholder="john-doe"
+        />
+      </mat-form-field>
+
+      <!-- School ID -->
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Enter your school ID</mat-label>
+        <input
+          [(ngModel)]="signUpData.schoolId"
+          matInput
+          placeholder="AAA/BBB/CC"
+        />
+      </mat-form-field>
+
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Email address</mat-label>
         <input
@@ -39,17 +81,17 @@
       >
         <mat-label>Department</mat-label>
         <mat-select [(ngModel)]="signUpData.department">
-          <mat-option [value]="6"> Software Engineering </mat-option>
-          <mat-option [value]="6"> Electrical Engineering </mat-option>
-          <mat-option [value]="6"> Civil Engineering</mat-option>
-          <mat-option [value]="6"> Mechanical Engineering</mat-option>
-          <mat-option [value]="6"> Chemical Engineering </mat-option>
+          <mat-option value="Software Engineering"> Software Engineering </mat-option>
+          <mat-option value="Electrical Engineering"> Electrical Engineering </mat-option>
+          <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
+          <mat-option value="MechanicalEngineering"> Mechanical Engineering</mat-option>
+          <mat-option value="Chemical Engineering"> Chemical Engineering </mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="width-25">
         <mat-label>Year</mat-label>
-        <mat-select [(ngModel)]="signUpData.year">
+        <mat-select [(ngModel)]="signUpData.academicYear">
           <mat-option [value]="1"> 1 </mat-option>
           <mat-option [value]="2"> 2 </mat-option>
           <mat-option [value]="3"> 3 </mat-option>

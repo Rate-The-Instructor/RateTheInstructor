@@ -1,4 +1,7 @@
+import { NavigationExtras, Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 import { Component } from '@angular/core';
+import { TokenService } from 'src/app/services/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +12,36 @@ export class LoginComponent {
   hide = true;
 
   loginData = {
-    email: '',
+    username: '',
     password: '',
   };
 
-  ngOnInit() {}
+  constructor(private authService: AuthService, private tokenService: TokenService, private router: Router){}
 
-  handleSubmit(formData: any) {}
+  loggedInUser: any
+
+  ngOnInit() {
+    
+  }
+
+  handleSubmit(){
+    console.log(this.loginData)
+    this.authService.login(this.loginData).subscribe(data => {
+      console.log(data)
+
+      this.tokenService.setJWTtoken(data.access_token);
+      this.tokenService.setUserData(data);
+
+      this.authService.setUser();
+
+      const navigationExtras: NavigationExtras = {
+        state: {
+          reload: true
+        }
+      };
+
+      this.router.navigate(['/']);
+
+    })
+  }
 }

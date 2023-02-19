@@ -13,13 +13,13 @@
 
   <div class="spacer"></div>
 
-  <a mat-button [matMenuTriggerFor]="menu">
-    <span style="display: flex; align-items: center;"> Logged user<mat-icon>keyboard_arrow_down</mat-icon> </span>  </a
+  <a mat-button [matMenuTriggerFor]="menu" *ngIf="loggedInUser">
+    <span style="display: flex; align-items: center;"> {{loggedInUser.firstname}}<mat-icon>keyboard_arrow_down</mat-icon> </span>  </a
   >
   <mat-menu #menu="matMenu">
-    <a mat-menu-item color="warn" routerLink="profile">Profile</a>
-    <a mat-menu-item color="warn">Log Out</a>
+    <a mat-menu-item color="warn" routerLink="profile" >Profile</a>
+    <a mat-menu-item color="warn" (click)="logout()">Log Out</a>
   </mat-menu>
-  <a mat-stroked-button theme="forest" routerLink="login">Sign In</a>
-  <a mat-raised-button theme="forest" routerLink="signup">Sign Up</a>
+  <a mat-stroked-button theme="forest" routerLink="login" *ngIf="!loggedInUser">Sign In</a>
+  <a mat-raised-button theme="forest" routerLink="signup" *ngIf="!loggedInUser">Sign Up</a>
 </mat-toolbar>

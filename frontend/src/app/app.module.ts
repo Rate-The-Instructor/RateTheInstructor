@@ -7,6 +7,7 @@ import { RatingSystemComponent } from './components/rating-system/rating-system.
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -64,6 +65,7 @@ import { InstructoreditComponent } from './components/instructoredit/instructore
 @NgModule({
   imports: [
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
