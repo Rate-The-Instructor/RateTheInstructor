@@ -60,7 +60,6 @@ import { EditPopupComponent } from './components/edit-popup/edit-popup.component
 import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
 import { ReportPopupComponent } from './components/report-popup/report-popup.component';
 
-
 @NgModule({
   imports: [
     AppRoutingModule,
@@ -69,6 +68,7 @@ import { ReportPopupComponent } from './components/report-popup/report-popup.com
     NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
 
     // Angular material
     MatFormFieldModule,
