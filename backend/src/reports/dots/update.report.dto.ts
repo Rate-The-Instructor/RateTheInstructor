@@ -3,5 +3,5 @@ import { CreateReportDto } from './create-report.dto';
 
 export class UpdateReportDto extends OmitType(CreateReportDto, [
   'reviewId',
-  'reporterId',
+  'userId',
 ] as const) {}

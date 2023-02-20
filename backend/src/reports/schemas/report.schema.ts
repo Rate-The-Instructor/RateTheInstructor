@@ -6,7 +6,7 @@ export class Report {
   @Prop({ required: true })
   //   {type:mongoose.Types.ObjectId, ref:'Student'}
   //   reporterId:Student
-  reporterId: string;
+  userId: string;
 
   @Prop({ required: true })
   //   {type:mongoose.Types.ObjectId, ref:'Review'}

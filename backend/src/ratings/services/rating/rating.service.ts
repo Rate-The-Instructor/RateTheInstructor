@@ -1,11 +1,24 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  Inject,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { InstructorsService } from 'src/instructors/services/instructors/instructors.service';
 import { IRating } from 'src/ratings/interfaces/rating.interface';
+import { UserService } from 'src/user/service/user.service';
 
 @Injectable()
 export class RatingService {
-  constructor(@InjectModel('rating') private ratingModel: Model<IRating>) {}
+  constructor(
+    @InjectModel('Rating') private ratingModel: Model<IRating>,
+    @Inject(forwardRef(() => InstructorsService))
+    private instructorService: InstructorsService,
+    @Inject(forwardRef(() => UserService))
+    private userService: UserService,
+  ) {}
 
   async getById(id: string): Promise<IRating> {
     try {
@@ -20,7 +33,10 @@ export class RatingService {
   }
   async getByUserId(userId): Promise<IRating[]> {
     try {
-      const rating = await this.ratingModel.find({ userId }).exec();
+      const rating = await this.ratingModel
+        .find({ userId })
+        .sort({ createdAt: 'desc' })
+        .exec();
       if (!rating) {
         throw new NotFoundException();
       }
@@ -31,7 +47,10 @@ export class RatingService {
   }
   async getAllByInstructorId(instructorId): Promise<IRating[]> {
     try {
-      const rating = await this.ratingModel.find({ instructorId }).exec();
+      const rating = await this.ratingModel
+        .find({ instructorId })
+        .sort({ createdAt: 'desc' })
+        .exec();
       if (!rating) {
         throw new NotFoundException();
       }
@@ -47,6 +66,7 @@ export class RatingService {
     try {
       const rating = await this.ratingModel
         .find({ instructorId, courseId })
+        .sort({ createdAt: 'desc' })
         .exec();
       if (!rating) {
         throw new NotFoundException();
@@ -58,7 +78,10 @@ export class RatingService {
   }
   async getAllRating(): Promise<IRating[]> {
     try {
-      const ratings = await this.ratingModel.find().exec();
+      const ratings = await this.ratingModel
+        .find()
+        .sort({ createdAt: 'desc' })
+        .exec();
       return ratings;
     } catch (err) {
       throw err;
@@ -68,6 +91,8 @@ export class RatingService {
   async createRating(createDto): Promise<IRating> {
     try {
       const rating = await this.ratingModel.create(createDto);
+      await this.instructorService.addRating(rating.instructorId, rating);
+      await this.userService.addRating(createDto.userId, rating.id);
       return rating;
     } catch (err) {
       throw err;
@@ -87,7 +112,20 @@ export class RatingService {
   async deleteRating(id): Promise<IRating> {
     try {
       const deletedRating = await this.ratingModel.findByIdAndDelete(id).exec();
+      await this.userService.deleteRating(deletedRating.userId, id);
+      await this.instructorService.deleteRating(
+        deletedRating.instructorId,
+        deletedRating,
+      );
       return deletedRating;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async deleteMany(filter) {
+    try {
+      return await this.ratingModel.deleteMany(filter);
     } catch (err) {
       throw err;
     }
