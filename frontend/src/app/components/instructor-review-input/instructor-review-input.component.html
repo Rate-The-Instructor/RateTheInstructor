@@ -1,6 +1,6 @@
 <div class="container">
   <div matListItemTitle style="margin: 0" class="mat-headline-3">
-    Rate: <strong>Abebe Bekele</strong>
+    Rate: <strong>{{instructor.firstName}} {{instructor.lastName}}</strong>
   </div>
   <div class="mat-body-1" matListItemLine>Addis Ababa University</div>
 
@@ -16,19 +16,9 @@
         class="width-25"
       >
         <mat-label>Course</mat-label>
-        <mat-select [(ngModel)]="ratingData.course">
-          <mat-option value="Software Engineering">
-            Software Engineering
-          </mat-option>
-          <mat-option value="Electrical Engineering">
-            Electrical Engineering
-          </mat-option>
-          <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
-          <mat-option value="Mechanical Engineering">
-            Mechanical Engineering</mat-option
-          >
-          <mat-option value="Chemical Engineering">
-            Chemical Engineering
+        <mat-select [(ngModel)]="ratingData.courseId">
+          <mat-option *ngFor="let course of instructor.courses" [value]="course._id">
+            {{course.code}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -40,7 +30,7 @@
       >How would you rate this instructor</mat-card-title
     >
     <mat-card-content style="margin-left: 10rem">
-      <app-rating-system></app-rating-system>
+      <app-rating-system #starRating></app-rating-system>
     </mat-card-content>
   </mat-card>
 
@@ -50,13 +40,13 @@
     >
     <mat-card-content style="margin-left: 10rem">
       <mat-radio-group
-        [(ngModel)]="ratingData.teachAgain"
+        [(ngModel)]="ratingData.questions.WouldYouTakeThisInstructorAgain"
         aria-label="Select an option"
       >
-        <mat-radio-button style="margin-right: 2rem" value="YES"
+        <mat-radio-button style="margin-right: 2rem" value="yes"
           >YES</mat-radio-button
         >
-        <mat-radio-button value="NO">NO</mat-radio-button>
+        <mat-radio-button value="no">NO</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
   </mat-card>
@@ -67,13 +57,13 @@
     >
     <mat-card-content style="margin-left: 10rem">
       <mat-radio-group
-        [(ngModel)]="ratingData.useTextBook"
+        [(ngModel)]="ratingData.questions.DidThisProfessorUseTextbooks"
         aria-label="Select an option"
       >
-        <mat-radio-button style="margin-right: 2rem" value="YES"
+        <mat-radio-button style="margin-right: 2rem" value="yes"
           >YES</mat-radio-button
         >
-        <mat-radio-button value="NO">NO</mat-radio-button>
+        <mat-radio-button value="no">NO</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
   </mat-card>
@@ -84,13 +74,13 @@
     >
     <mat-card-content style="margin-left: 10rem">
       <mat-radio-group
-        [(ngModel)]="ratingData.attendanceMandatory"
+        [(ngModel)]="ratingData.questions.WasAttendanceMandatory"
         aria-label="Select an option"
       >
-        <mat-radio-button style="margin-right: 2rem" value="YES"
+        <mat-radio-button style="margin-right: 2rem" value="yes"
           >YES</mat-radio-button
         >
-        <mat-radio-button value="NO">NO</mat-radio-button>
+        <mat-radio-button value="no">NO</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
   </mat-card>
@@ -108,10 +98,10 @@
         class="width-25"
       >
         <mat-label>Course grade</mat-label>
-        <mat-select [(ngModel)]="ratingData.gradeRevieved">
+        <mat-select [(ngModel)]="ratingData.questions.SelectGradeReceived">
           <mat-option value="A"> A </mat-option>
           <mat-option value="B"> B </mat-option>
-          <mat-option value="C">C</mat-option>
+          <mat-option value="C"> C </mat-option>
           <mat-option value="D"> D</mat-option>
           <mat-option value="F"> F </mat-option>
         </mat-select>
@@ -126,21 +116,28 @@
     <mat-card-content>
       <mat-chip-listbox selectable multiple>
         <mat-chip
-        *ngFor="let tag of tags"
+          *ngFor="let tag of tags"
           style="cursor: pointer"
           #c="matChip"
-          (click)="toggleSelection(c)"
+          (click)="toggleSelection(tag, c)"
           [value]="tag"
         >
-          {{tag}}
+          {{ tag }}
         </mat-chip>
       </mat-chip-listbox>
     </mat-card-content>
   </mat-card>
 
-  <app-instructor-review></app-instructor-review>
+  <app-instructor-review #reviewText></app-instructor-review>
 
   <div style="width: 70%; display: flex; justify-content: center">
-    <button mat-raised-button color="primary" style="width: 200px; height: 60px;">Submit Review</button>
+    <button
+      mat-raised-button
+      color="primary"
+      style="width: 200px; height: 60px"
+      (click)="submitRating()"
+    >
+      Submit Review
+    </button>
   </div>
 </div>

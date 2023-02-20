@@ -1,31 +1,11 @@
-<mat-grid-list style="height: 100vh;" cols="1" rowHeight="500px">
-  <br />
-  <mat-grid-tile-header>
+<div >
+  <div>
     <h1 class="mat-headline-4" style="text-align: center">
       <strong>Sign Up</strong> to rate your favorite instructors
     </h1>
-  </mat-grid-tile-header>
-  <mat-grid-tile style="height: 100%;">
+  </div>
+  <div style="height: 100%; display: flex; justify-content: center; align-items: cneter;">
     <div class="example-container" style="width: 400px">
-      <!-- First name -->
-      <mat-form-field appearance="fill" class="width-100">
-        <mat-label>First name</mat-label>
-        <input
-          [(ngModel)]="signUpData.firstname"
-          matInput
-          placeholder="John"
-        />
-      </mat-form-field>
-
-      <!-- Last name -->
-      <mat-form-field appearance="fill" class="width-100">
-        <mat-label>Last name</mat-label>
-        <input
-          [(ngModel)]="signUpData.lastname"
-          matInput
-          placeholder="Doe"
-        />
-      </mat-form-field>
 
       <!-- username -->
       <mat-form-field appearance="fill" class="width-100">
@@ -47,6 +27,7 @@
         />
       </mat-form-field>
 
+      <!-- Email -->
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Email address</mat-label>
         <input
@@ -56,6 +37,8 @@
         />
       </mat-form-field>
       <br />
+
+      <!-- Password -->
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Enter password</mat-label>
         <input
@@ -74,42 +57,46 @@
         </button>
       </mat-form-field>
 
-      <mat-form-field
-        style="margin-right: 4px; width: 200px"
-        appearance="fill"
-        class="width-25"
-      >
-        <mat-label>Department</mat-label>
-        <mat-select [(ngModel)]="signUpData.department">
-          <mat-option value="Software Engineering"> Software Engineering </mat-option>
-          <mat-option value="Electrical Engineering"> Electrical Engineering </mat-option>
-          <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
-          <mat-option value="MechanicalEngineering"> Mechanical Engineering</mat-option>
-          <mat-option value="Chemical Engineering"> Chemical Engineering </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="width-25">
-        <mat-label>Year</mat-label>
-        <mat-select [(ngModel)]="signUpData.academicYear">
-          <mat-option [value]="1"> 1 </mat-option>
-          <mat-option [value]="2"> 2 </mat-option>
-          <mat-option [value]="3"> 3 </mat-option>
-          <mat-option [value]="4"> 4 </mat-option>
-          <mat-option [value]="5"> 5 </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="dep-and-year">
+        <mat-form-field
+          style="margin-right: 4px; width: 200px"
+          appearance="fill"
+          class="width-25"
+        >
+          <mat-label>Department</mat-label>
+          <mat-select [(ngModel)]="signUpData.department">
+            <mat-option value="Software Engineering"> Software Engineering </mat-option>
+            <mat-option value="Electrical Engineering"> Electrical Engineering </mat-option>
+            <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
+            <mat-option value="MechanicalEngineering"> Mechanical Engineering</mat-option>
+            <mat-option value="Chemical Engineering"> Chemical Engineering </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="width-25">
+          <mat-label>Year</mat-label>
+          <mat-select [(ngModel)]="signUpData.academicYear">
+            <mat-option [value]="1"> 1 </mat-option>
+            <mat-option [value]="2"> 2 </mat-option>
+            <mat-option [value]="3"> 3 </mat-option>
+            <mat-option [value]="4"> 4 </mat-option>
+            <mat-option [value]="5"> 5 </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
       <br />
       <br />
-      <span>
-        <button style="margin-right: 40px" mat-raised-button color="primary">
-          Sign Up
-        </button>
-      </span>
-      <span
-        >already have an account? <a [routerLink]="['/login']">Login</a></span
-      >
+      <div class="signup-btn">
+        <span>
+          <button style="margin-right: 40px" mat-raised-button color="primary">
+            Sign Up
+          </button>
+        </span>
+        <span
+          >already have an account? <a [routerLink]="['/login']">Login</a></span
+        >
+      </div>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>

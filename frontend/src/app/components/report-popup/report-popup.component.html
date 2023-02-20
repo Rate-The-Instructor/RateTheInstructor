@@ -2,18 +2,19 @@
     <h3> File a report </h3>
     <div class="comment-section">
         <mat-form-field appearance="fill">
-            <mat-label> Your report</mat-label>
+            <mat-label> Your report </mat-label>
             <textarea
             rows="10"
             cols="10"
             placeholder="what bothered you?"
             class="comments"
             matInput
+            [(ngModel)] = "reportText"
             ></textarea>
         </mat-form-field>
         <div class="btn">
 
-            <button style="margin-left: 6px" mat-raised-button color="accent">
+            <button style="margin-left: 6px" mat-raised-button color="accent" (click)="submitReport()">
                 Submit
             </button>
         </div>

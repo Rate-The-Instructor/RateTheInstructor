@@ -71,11 +71,7 @@
         <h1 style="font-weight: bolder">Ratings you gave</h1>
       </ng-template>
       <div class="reviews-container" style="margin: 0 6rem">
-        <app-instructor-review-display></app-instructor-review-display>
-        <app-instructor-review-display></app-instructor-review-display>
-        <app-instructor-review-display></app-instructor-review-display>
-        <app-instructor-review-display></app-instructor-review-display>
-        <app-instructor-review-display></app-instructor-review-display>
+        <app-instructor-review-display [rating]="newUserData.ratings"></app-instructor-review-display>
       </div>
     </mat-tab>
     <mat-tab>

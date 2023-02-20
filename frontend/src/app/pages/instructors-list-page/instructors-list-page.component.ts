@@ -14,7 +14,10 @@ export class InstructorsListPageComponent implements OnInit {
   ngOnInit() {
     this.instructorService
       .getInstructors()
-      .subscribe((instructors) => (this.allInstructors = instructors));
+      .subscribe((instructors) => {
+        this.allInstructors = instructors
+        console.log(instructors[0].ratingDistribution)
+      });
   }
 
   departments = [
