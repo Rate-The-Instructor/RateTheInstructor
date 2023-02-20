@@ -52,7 +52,8 @@ export class InstructorsService {
   async getAllInstructors(): Promise<IInstructor[]> {
     let instructors: IInstructor[];
     try {
-      instructors = await this.instructorModel.find()
+      instructors = await this.instructorModel
+        .find()
         .populate('department')
         .populate('courses')
         .populate('ratings');
@@ -239,7 +240,7 @@ export class InstructorsService {
     );
     instructor.overallRating = newOverall;
     instructor.difficultyRating = newDifficulty;
-    this.updateTags(rating, instructor, operationType);
+    // this.updateTags(rating, instructor, operationType);
 
     try {
       await instructor.save();
