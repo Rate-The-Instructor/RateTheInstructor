@@ -68,6 +68,7 @@ export class InstructorsService {
       instructor = await this.instructorModel
         .findOne({ id })
         .populate('department')
+        .populate('courses')
         .populate('ratings');
     } catch (err) {
       console.log('instructor not found ');
