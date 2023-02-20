@@ -52,7 +52,10 @@ export class InstructorsService {
   async getAllInstructors(): Promise<IInstructor[]> {
     let instructors: IInstructor[];
     try {
-      instructors = await this.instructorModel.find();
+      instructors = await this.instructorModel.find()
+        .populate('department')
+        .populate('courses')
+        .populate('ratings');
     } catch (err) {
       throw err;
     }
