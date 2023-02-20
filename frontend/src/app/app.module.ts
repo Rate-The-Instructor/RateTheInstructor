@@ -63,7 +63,6 @@ import { ReportPopupComponent } from './components/report-popup/report-popup.com
 
 @NgModule({
   imports: [
-    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -129,7 +128,6 @@ import { ReportPopupComponent } from './components/report-popup/report-popup.com
     InstructoreditComponent,
 
     ReportPopupComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent],

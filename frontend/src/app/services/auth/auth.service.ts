@@ -3,12 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  
-  api = 'https://ratetheinstructor-production.up.railway.app/api'
-  endpoint = 'auth'
+  api = 'https://ratetheinstructor-production.up.railway.app/api';
+  endpoint = 'auth';
 
   // Stuff related to the logged in user
 
@@ -25,16 +24,21 @@ export class AuthService {
 
   // Stuff related to the logged in user ENDS
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(userData: any): Observable<any> {
     return this.http.post(`${this.api}/${this.endpoint}/login`, userData);
   }
 
-  signup(signUpData: any){
-    return this.http.post<any>(`${this.api}/${this.endpoint}/signup`, signUpData);
+  signup(signUpData: any) {
+    return this.http.post<any>(
+      `${this.api}/${this.endpoint}/signup`,
+      signUpData
+    );
   }
 
-  logout(){}
-
+  logout() {}
+  updateUser(id: string, signUpData: any) {
+    return this.http.patch<any>(`${this.api}/user/${id}`, signUpData);
+  }
 }
