@@ -6,7 +6,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  api = 'https://ratetheinstructor-production.up.railway.app/api';
+
+  api = 'https://ratetheinstructor-production.up.railway.app/api'
   endpoint = 'auth';
 
   // Stuff related to the logged in user

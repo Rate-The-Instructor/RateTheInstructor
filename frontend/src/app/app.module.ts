@@ -69,6 +69,7 @@ import { ReportPopupComponent } from './components/report-popup/report-popup.com
     NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
 
     // Angular material
     MatFormFieldModule,
