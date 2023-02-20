@@ -1,15 +1,15 @@
 <div class="container" style="margin-top: 2rem">
   <div class="profile-container">
     <div class="left">
-      <app-professor-detail class="professor-detail"></app-professor-detail>
+      <app-professor-detail class="professor-detail" [instructor]="instructor"></app-professor-detail>
       <app-top-tags class="top-tags"></app-top-tags>
     </div>
     <div class="right">
-      <app-rating-bar></app-rating-bar>
+      <app-rating-bar [ratingDistribution]="instructor.ratingDistribution"></app-rating-bar>
     </div>
   </div>
   <mat-tab-group>
-    <mat-tab label="24 Reviews">
+    <mat-tab label=" {{instructor.totalRating + ' Ratings'}}">
       <div class="reviews-container">
         <h1>{{ instructor.totalRating }} Reviews</h1>
         <mat-divider></mat-divider>

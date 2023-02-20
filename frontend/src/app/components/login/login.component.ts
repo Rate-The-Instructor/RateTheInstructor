@@ -30,6 +30,7 @@ export class LoginComponent {
       console.log(data)
 
       this.tokenService.setJWTtoken(data.access_token);
+      console.log(data)
       this.tokenService.setUserData(data);
 
       this.authService.setUser();
@@ -39,6 +40,8 @@ export class LoginComponent {
           reload: true
         }
       };
+
+      alert('Logged In succesfully!')
 
       this.router.navigate(['/']);
 

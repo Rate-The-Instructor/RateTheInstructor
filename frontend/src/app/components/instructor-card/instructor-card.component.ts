@@ -8,5 +8,5 @@ import { InstructorInterface } from 'src/app/Interfaces/instructorGet';
 })
 export class InstructorCardComponent {
   constructor() {}
-  @Input() instructor!: InstructorInterface;
+  @Input() instructor!: any;
 }

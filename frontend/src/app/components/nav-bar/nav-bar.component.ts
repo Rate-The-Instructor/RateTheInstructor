@@ -6,31 +6,30 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
-  searchTerm = ""
-  loggedInUser:any
+  searchTerm = '';
+  loggedInUser: any;
 
-  constructor(private tokenService: TokenService, private router: Router, private authService: AuthService){}
+  constructor(
+    private tokenService: TokenService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit(){
-    this.authService.getUser().subscribe((user:any) => this.loggedInUser = user);
+  ngOnInit() {
+    this.authService.userSubject.subscribe(newUser => this.loggedInUser = newUser)
   }
 
   logout() {
-    this.tokenService.removeTokens()
+    this.tokenService.removeTokens();
+    this.loggedInUser = undefined;
 
     this.authService.setUser();
 
-    const navigationExtras: NavigationExtras = {
-      state: {
-        reload: true
-      }
-    };
-    
+    this.authService.userSubject.next(null);
+
     this.router.navigate(['/']);
-
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-rating-bar',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./rating-bar.component.css']
 })
 export class RatingBarComponent {
+
+  @Input() ratingDistribution:any
 
 }

@@ -1,22 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { TokenService } from '../token/token.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
+
   api = 'https://ratetheinstructor-production.up.railway.app/api'
   endpoint = 'auth';
 
   // Stuff related to the logged in user
 
-  private userSubject = new BehaviorSubject(null);
+
+
+  public userSubject = new BehaviorSubject( this.tokenService.getUserData() || null);
 
   setUser() {
     const userData = localStorage.getItem('userData');
     this.userSubject.next(JSON.parse(userData!));
+
   }
 
   getUser() {
@@ -25,7 +31,6 @@ export class AuthService {
 
   // Stuff related to the logged in user ENDS
 
-  constructor(private http: HttpClient) {}
 
   login(userData: any): Observable<any> {
     return this.http.post(`${this.api}/${this.endpoint}/login`, userData);

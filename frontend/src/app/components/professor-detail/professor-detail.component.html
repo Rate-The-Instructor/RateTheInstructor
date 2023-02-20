@@ -1,26 +1,42 @@
-<div class="info" style="width: max-content;">
-    <div class="rating">
-        <div><h1 class="value">4.5</h1></div>
-        <div class="outOf">/5</div>
-        <br>
+<div class="info" style="width: max-content">
+  <div class="rating">
+    <div>
+      <h1 class="value">{{ instructor.overallRating | number : "1.1-1" }}</h1>
     </div>
-    <h1>Jelani Nelson</h1>
-    <div class="department">
-        <p>Instructor in the department of&nbsp;</p>
-        <p class="dep"><b>Software Engineering</b></p>
+    <div class="outOf">/5</div>
+    <br />
+  </div>
+  <h1>{{ instructor.firstName }} {{ instructor.lastName }}</h1>
+  <div class="department">
+    <p>Instructor in the department of&nbsp;</p>
+    <p class="dep">
+      <b>{{ instructor.department.departmentName }}</b>
+    </p>
+  </div>
+  <div class="stat">
+    <div class="percentage">
+      <p class="probab">87%</p>
+      <p>Would Take Again</p>
     </div>
-    <div class="stat">
-        <div class="percentage">
-            <p class="probab">87%</p>
-            <p>Would Take Again</p>
-        </div>
-        <mat-divider style="background-color: black;" [vertical]="true"></mat-divider>
-        <div class="difficulty">
-            <p class="level-diff">1.5</p>
-            <p>Level of Difficulty</p>
-        </div>
+    <mat-divider
+      style="background-color: black"
+      [vertical]="true"
+    ></mat-divider>
+    <div class="difficulty">
+      <p class="level-diff">
+        {{ instructor.difficultyRating | number : "1.1-1" }}
+      </p>
+      <p>Level of Difficulty</p>
     </div>
-    <div class="btn-container">
-        <button class="rate-btn" mat-flat-button color="accent" routerLink="/rate/67">Rate this instructor</button>
-    </div>
+  </div>
+  <div class="btn-container">
+    <button
+      class="rate-btn"
+      mat-flat-button
+      color="accent"
+      (click)="rateInstructor(instructor._id)"
+    >
+      Rate this instructor
+    </button>
+  </div>
 </div>

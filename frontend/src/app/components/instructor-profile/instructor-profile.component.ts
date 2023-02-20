@@ -21,8 +21,7 @@ export class InstructorProfileComponent {
       console.log(instructorId);
 
       this.instructorService.getInstructorsById(instructorId).subscribe(data => {
-        this.instructor = data
-        console.log(data)
+        this.instructor = data;
       })
 
     });
