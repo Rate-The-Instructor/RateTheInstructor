@@ -136,7 +136,7 @@ export class InstructorsService {
       const instructor = await this.getInstructor(instructorId);
       instructor.ratings.push(rating.id);
       this.rateInstructor(rating, 'addRating');
-      this.sortTags(instructor);
+      await this.sortTags(instructor);
       await instructor.save();
       return instructor;
     } catch (err) {
@@ -202,19 +202,25 @@ export class InstructorsService {
       instructor.totalRating;
     return { newOverall, newDifficulty };
   }
-  updateTags(rating: IRating, instructor: IInstructor, operationType: string) {
+  async updateTags(
+    rating: IRating,
+    instructor: IInstructor,
+    operationType: string,
+  ) {
     let tags = rating.tags;
     let sign: number;
     sign = operationType == 'addRating' ? 1 : -1;
-    tags.forEach((tagName: string) => {
-      instructor.tagCounter.forEach((element) => {
-        if (element.name === tagName) {
-          element.score += sign;
-        }
+    rating.tags.forEach((tag) => {
+      instructor.tagCounter.forEach((tagCounter, index) => {
+        instructor.tagCounter[index] = {
+          name: tag,
+          score: tagCounter.score + 1,
+        };
       });
     });
   }
-  sortTags(instructor: IInstructor) {
+
+  async sortTags(instructor: IInstructor) {
     let instructorTags = instructor.tagCounter;
     instructorTags.sort((a, b) => b.score - a.score);
     instructor.tagCounter = instructorTags;
@@ -232,9 +238,13 @@ export class InstructorsService {
       instructor,
       operationType,
     );
+    instructor.ratingDistribution[String(rating.overallRating)] =
+      instructor.ratingDistribution[String(rating.overallRating)] + 1;
     instructor.overallRating = newOverall;
     instructor.difficultyRating = newDifficulty;
+
     this.updateTags(rating, instructor, operationType);
+    await instructor.save();
 
     try {
       await instructor.save();

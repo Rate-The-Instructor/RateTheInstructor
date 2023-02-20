@@ -19,6 +19,15 @@ export enum Tags {
   GradedByFewThings = 'graded by few things',
   AccessibleOutsideClass = 'accessible outside class',
 }
+const allTags = [];
+
+Object.values(Tags).forEach((tag) => {
+  let ob = {
+    name: tag,
+    score: 0,
+  };
+  allTags.push(ob);
+});
 
 export const InstructorSchema = new mongoose.Schema(
   {
@@ -77,20 +86,10 @@ export const InstructorSchema = new mongoose.Schema(
         5: 0,
       },
     },
-    tagCounter: [
-      {
-        name: {
-          type: String,
-          required: true,
-          enum: Tags,
-        },
-        score: {
-          type: Number,
-          required: true,
-          default: 0,
-        },
-      },
-    ],
+    tagCounter: {
+      type: Array,
+      default: allTags,
+    },
   },
   { timestamps: true },
 );
