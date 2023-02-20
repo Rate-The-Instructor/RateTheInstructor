@@ -1,7 +1,7 @@
-import {Document} from 'mongoose';
+import { Document } from 'mongoose';
 
 export interface IComment extends Document {
-    teacherId:number
-    studentId:number
-    comment:string
+  instructorId: string;
+  userId: string;
+  comment: string;
 }

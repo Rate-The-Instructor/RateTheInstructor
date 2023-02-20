@@ -6,6 +6,7 @@ import { InstructorsService } from './services/instructors/instructors.service';
 import { DepartmentModule } from 'src/department/department.module';
 import { CoursesModule } from 'src/courses/courses.module';
 import { RatingsModule } from 'src/ratings/ratings.module';
+import { CommentModule } from 'src/comment/comment.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { RatingsModule } from 'src/ratings/ratings.module';
     forwardRef(() => DepartmentModule),
     forwardRef(() => CoursesModule),
     forwardRef(() => RatingsModule),
+    forwardRef(() => CommentModule),
   ],
   controllers: [InstructorsController],
   providers: [InstructorsService],

@@ -10,6 +10,7 @@ export interface IUser extends Document {
   email: string;
   academicYear: number;
   ratings: string[];
+  comments: string[];
   createdAt: Date;
   updatedAt: Date;
 }

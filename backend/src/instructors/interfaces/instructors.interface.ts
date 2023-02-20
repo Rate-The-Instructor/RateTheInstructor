@@ -8,6 +8,7 @@ export interface IInstructor extends Document {
   overallRating: number;
   difficultyRating: number;
   ratings: string[];
+  comments: string[];
   department: string;
   ratingDistribution: object;
   tagCounter: [{ name: String; score: number }];
