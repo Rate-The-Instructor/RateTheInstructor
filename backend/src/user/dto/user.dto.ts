@@ -27,6 +27,9 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   readonly schoolId: string;
+  @IsOptional()
+  @IsString({ each: true })
+  readonly courses: string[];
 
   @IsNotEmpty()
   @IsString()
