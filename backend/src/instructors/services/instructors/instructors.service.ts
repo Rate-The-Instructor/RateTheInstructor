@@ -77,6 +77,7 @@ export class InstructorsService {
         .findById(id)
         .populate('department')
         .populate('courses')
+        .populate('comments')
         .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       console.log('instructor not found ');
