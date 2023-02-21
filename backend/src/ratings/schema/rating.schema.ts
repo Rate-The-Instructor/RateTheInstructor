@@ -22,15 +22,16 @@ export enum Tags {
 }
 
 export enum Questions {
-  WouldYouTakeThisInstructorAgain = 'Would you take this Instructor again?',
-  DidThisProfessorUseTextbooks = 'Did this Instrucotr use textbooks?',
-  DidTheInstuctorShareMaterials = 'Did the instructor share materials',
-  ExamQuestionsOutOfScope = 'Exam Questions Out Of Scope',
-  WasAttendanceMandatory = 'Was Attendance Mandatory',
-  SelectGradeReceived = 'Select Grade Received',
-  DoesTheInstructorKnowsTheSubjectWell = ' Does The Instructor Knows The Subject Well',
-  IsTheInstructorGoodAtExplainingConcepts = 'Is The Instructor Good At Explaining Concepts',
+  WouldYouTakeThisInstructorAgain = 'Would take again?',
+  DidThisProfessorUseTextbooks = 'Use textbooks?',
+  DidTheInstuctorShareMaterials = 'Share materials?',
+  ExamQuestionsOutOfScope = 'Exam Out Of Scope?',
+  WasAttendanceMandatory = 'Attendance Mandatory?',
+  SelectGradeReceived = 'Grade Received',
+  DoesTheInstructorKnowsTheSubjectWell = 'Knows The Subject Well?',
+  IsTheInstructorGoodAtExplainingConcepts = 'Explains Concepts well?',
 }
+
 export enum Answers {
   YES = 'yes',
   NO = 'no',

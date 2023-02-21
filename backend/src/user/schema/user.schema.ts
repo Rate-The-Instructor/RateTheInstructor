@@ -13,7 +13,7 @@ export class User {
   username: string;
 
   @Prop({ type: mongoose.Types.ObjectId, required: true, ref: 'Department' })
-  department: string;
+  department;
 
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course' })
   courses;
