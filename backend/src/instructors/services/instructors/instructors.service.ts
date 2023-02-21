@@ -60,7 +60,7 @@ export class InstructorsService {
         .populate('department')
         .populate('comments')
         .populate('courses')
-        .populate('ratings');
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       throw err;
     }
@@ -77,7 +77,7 @@ export class InstructorsService {
         .findById(id)
         .populate('department')
         .populate('courses')
-        .populate('ratings');
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       console.log('instructor not found ');
       throw err;
