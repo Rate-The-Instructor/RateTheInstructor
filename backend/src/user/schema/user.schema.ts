@@ -30,7 +30,7 @@ export class User {
 
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Rating' })
   ratings;
-  @Prop({ type: [mongoose.Types.ObjectId], ref: 'comment' })
+  @Prop({ type: [mongoose.Types.ObjectId], ref: 'Comment' })
   comments;
 }
 export const UserSchema = SchemaFactory.createForClass(User);
