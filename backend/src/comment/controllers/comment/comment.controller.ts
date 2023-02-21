@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -30,7 +31,7 @@ export class CommentController {
     return this.commentService.create(comment);
   }
 
-  @Put(':id')
+  @Patch(':id')
   async updateById(
     @Param('id') id: string,
     @Body() comment: CommentDto,
