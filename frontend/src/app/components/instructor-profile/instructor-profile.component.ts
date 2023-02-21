@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InstructorInterface } from 'src/app/Interfaces/instructorGet';
 import { InstructorService } from 'src/app/services/instructor/instructor.service';
+import { CommentSectionComponent } from '../components/comment-section/comment-section.component';
 
 @Component({
   selector: 'app-instructor-profile',
@@ -10,7 +11,8 @@ import { InstructorService } from 'src/app/services/instructor/instructor.servic
 })
 export class InstructorProfileComponent {
 
-  instructor!: InstructorInterface
+  instructor!: any;
+  @ViewChild('commentBox') commentBox!: CommentSectionComponent
 
   constructor(private instructorService: InstructorService, private route: ActivatedRoute) {}
 

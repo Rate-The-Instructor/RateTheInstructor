@@ -8,10 +8,10 @@
 </head>
 <div class="container">
   <div class="review">
-    <div class="date" style="font-weight: 500">Dec 23rd 2023</div>
+    <div class="date" style="font-weight: 500">{{comment.createdAt | date}}</div>
     <div class="top-content">
       <div class="levelAndSubject">
-        <div class="subject">Prof Jelani</div>
+        <div class="subject">{{ comment.instructorId }}</div>
       </div>
       <mat-menu #menu="matMenu" class="menuItems">
         <div class="button-class create-button">
@@ -21,7 +21,7 @@
             color="primary"
             aria-label="edit icon"
           >
-            <span><mat-icon>create</mat-icon> Create</span>
+            <span><mat-icon>create</mat-icon>Edit</span>
           </button>
         </div>
         <div class="button-class flag-button">
@@ -47,18 +47,17 @@
     </div>
 
     <div class="comment">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, quos. Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, officia!
+      {{ comment.comment }}
     </div>
     <hr />
     <div class="icons">
       <div class="like-dislike">
         <button mat-icon-button>
           <mat-icon class="material-icons">thumb_up</mat-icon>
-        </button>
+        </button>1
         <button mat-icon-button>
           <mat-icon class="material-icons">thumb_down</mat-icon>
-        </button>
+        </button>2
       </div>
     </div>
   </div>

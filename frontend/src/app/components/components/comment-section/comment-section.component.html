@@ -1,4 +1,4 @@
-<div class="comment-section">
+<div class="comment-section" *ngIf="loggedInUser">
   <mat-form-field appearance="fill">
     <mat-label>Want to give a comment about this instructor?</mat-label>
     <textarea
@@ -7,9 +7,15 @@
       placeholder="Your comment"
       class="comments"
       matInput
+      [(ngModel)]="commentText"
     ></textarea>
   </mat-form-field>
-    <button style="margin-left: 6px" mat-raised-button color="primary">
-      Comment
-    </button>
+  <button
+    (click)="submitComment()"
+    style="margin-left: 6px"
+    mat-raised-button
+    color="primary"
+  >
+    Comment
+  </button>
 </div>

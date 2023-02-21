@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Commentervice } from 'src/app/services/comment/comment.service';
+import { TokenService } from 'src/app/services/token/token.service';
 import { DeletePopupComponent } from '../delete-popup/delete-popup.component';
 import { ReportPopupComponent } from '../report-popup/report-popup.component';
 
@@ -9,10 +11,20 @@ import { ReportPopupComponent } from '../report-popup/report-popup.component';
   styleUrls: ['./view-comment.component.css']
 })
 export class ViewCommentComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private tokenService: TokenService) {}
+
+  @Input() comment:any;
+  loggedInUser: any
+
+  ngOnInit(){
+    this.loggedInUser = this.tokenService.getUserData();
+  }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DeletePopupComponent);
+    const data:any = {
+      reviewId: this.comment._id
+    }
+    const dialogRef = this.dialog.open(DeletePopupComponent, {data: data});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -21,6 +33,11 @@ export class ViewCommentComponent {
 
   openEditDialog() {
     
+    const data:any = {
+      userId: this.loggedInUser.id,
+      reviewId: this.comment._id
+    }
+
     const dialogRef = this.dialog.open(ReportPopupComponent);
     
     dialogRef.afterClosed().subscribe(result => {

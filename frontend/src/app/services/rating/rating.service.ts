@@ -29,4 +29,8 @@ export class RatingService {
     return this.http.delete<any>(`${this.api}/${this.endpoint}/${ratingId}`)
   }
 
+  getRatingsByUserId(userId:string){
+    return this.http.get<any>(`${this.api}/${this.endpoint}/user/${userId}`)
+  }
+
 }
