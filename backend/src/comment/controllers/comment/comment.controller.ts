@@ -34,7 +34,7 @@ export class CommentController {
   @Patch(':id')
   async updateById(
     @Param('id') id: string,
-    @Body() comment: CommentDto,
+    @Body() comment,
   ): Promise<IComment> {
     return await this.commentService.updateById(id, comment);
   }
