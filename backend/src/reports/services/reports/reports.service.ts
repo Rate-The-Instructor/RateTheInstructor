@@ -41,6 +41,7 @@ export class ReportsService {
   async getAllReports(): Promise<IReport[]> {
     try {
       const reports = await this.ReportModel.find()
+        .populate('reviewId')
         .sort({ updatedAt: -1 })
         .exec();
       return reports;
@@ -51,7 +52,9 @@ export class ReportsService {
 
   async getReportById(id: string): Promise<IReport> {
     try {
-      const report = await this.ReportModel.findById(id).exec();
+      const report = await this.ReportModel.findById(id)
+        .populate('reviewId')
+        .exec();
       return report;
     } catch (err) {
       throw err;

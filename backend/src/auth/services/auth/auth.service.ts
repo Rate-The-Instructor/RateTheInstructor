@@ -46,8 +46,6 @@ export class AuthService {
     const {
       _id,
       username,
-      firstname,
-      lastname,
       department,
       schoolId,
       email,
@@ -59,8 +57,6 @@ export class AuthService {
     return {
       id: _id,
       username,
-      firstname,
-      lastname,
       department,
       schoolId,
       email,

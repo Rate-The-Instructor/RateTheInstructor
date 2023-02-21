@@ -10,14 +10,6 @@ import { PartialType } from '@nestjs/swagger';
 export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
-  readonly firstname: string;
-
-  @IsNotEmpty()
-  @IsString()
-  readonly lastname: string;
-
-  @IsNotEmpty()
-  @IsString()
   readonly username: string;
 
   @IsNotEmpty()
@@ -27,6 +19,7 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   readonly schoolId: string;
+
   @IsOptional()
   @IsString({ each: true })
   readonly courses: string[];
@@ -45,6 +38,7 @@ export class CreateUserDto {
   @IsOptional()
   @IsString({ each: true })
   readonly ratings: string[];
+
   @IsOptional()
   @IsString({ each: true })
   readonly comments: string[];
