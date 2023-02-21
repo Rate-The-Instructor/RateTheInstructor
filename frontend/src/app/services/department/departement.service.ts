@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class DepartmentService {
   constructor(private http: HttpClient) {}
   private departmentUrl =
-    'https://ratetheinstructor-production.up.railway.app/api/department/';
+    'https://ratetheinstructor-production.up.railway.app/api/department';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };

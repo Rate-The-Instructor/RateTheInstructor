@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class Commentervice {
   constructor(private http: HttpClient) {}
-  
-  commentUrl = 'https://ratetheinstructor-production.up.railway.app/api/comment/';
+
+  commentUrl =
+    'https://ratetheinstructor-production.up.railway.app/api/comment';
 
   getComments() {
     return this.http.get<any>(this.commentUrl);
@@ -18,13 +19,14 @@ export class Commentervice {
     const CommentIdUrl = `${this.commentUrl}/${id}`;
     return this.http.get<any>(CommentIdUrl);
   }
-  updateComment(comment: any): Observable<any> {
-    return this.http.put<any>(this.commentUrl, comment);
+  updateComment(commentId: string, comment: any): Observable<any> {
+    console.log(comment);
+    return this.http.patch<any>(`${this.commentUrl}/${commentId}`, comment);
   }
   postComment(comment: any): Observable<any> {
     return this.http.post<any>(this.commentUrl, comment);
   }
-  removeComment(id: number): Observable<any> {
+  deleteComment(id: number): Observable<any> {
     const commentUrl = `${this.commentUrl}/${id}`;
     return this.http.delete<any>(commentUrl);
   }

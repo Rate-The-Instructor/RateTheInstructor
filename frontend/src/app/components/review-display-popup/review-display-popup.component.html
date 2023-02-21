@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="questions">
+    <div *ngFor="let qa of review.questions">
+      <strong>{{ qa.question }}: </strong>{{ qa.answer }}
+    </div>
+  </div>
+  <div class="review-text">
+    <strong>Review text: </strong> {{ review.review }}
+  </div>
+
+  <div class="buttons">
+    <button mat-flat-button color="accent" (click)="deleteRating()">
+      Delete rating
+    </button>
+  </div>
+</div>

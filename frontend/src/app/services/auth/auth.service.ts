@@ -7,22 +7,20 @@ import { TokenService } from '../token/token.service';
   providedIn: 'root',
 })
 export class AuthService {
-
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  api = 'https://ratetheinstructor-production.up.railway.app/api'
+  api = 'https://ratetheinstructor-production.up.railway.app/api';
   endpoint = 'auth';
 
   // Stuff related to the logged in user
 
-
-
-  public userSubject = new BehaviorSubject( this.tokenService.getUserData() || null);
+  public userSubject = new BehaviorSubject(
+    this.tokenService.getUserData() || null
+  );
 
   setUser() {
     const userData = localStorage.getItem('userData');
     this.userSubject.next(JSON.parse(userData!));
-
   }
 
   getUser() {
@@ -31,16 +29,12 @@ export class AuthService {
 
   // Stuff related to the logged in user ENDS
 
-
   login(userData: any): Observable<any> {
     return this.http.post(`${this.api}/${this.endpoint}/login`, userData);
   }
 
   signup(signUpData: any) {
-    return this.http.post<any>(
-      `${this.api}/${this.endpoint}/signup`,
-      signUpData
-    );
+    return this.http.post<any>(`${this.api}/user`, signUpData);
   }
 
   logout() {}

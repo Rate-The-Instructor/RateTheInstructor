@@ -1,41 +1,38 @@
 .spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 a {
-    margin-right: .5rem ;
-
-} 
-
-.logo{
-    width: 200px;
-    height: 50px;
-    margin-right: 5px;
-}
-.logo:hover{
-    cursor: pointer;
+  margin-right: 0.5rem;
 }
 
-.container{
-    display: flex;
-    align-items: center;
+.logo {
+  width: 200px;
+  height: 50px;
+  margin-right: 5px;
+}
+.logo:hover {
+  cursor: pointer;
 }
 
-.first{
-    margin-left: .5rem;
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
-.in{
-    font-size: medium;
+
+.first {
+  margin-left: 0.5rem;
+}
+.in {
+  font-size: medium;
 }
 ::ng-deep .searchBar {
-    border-radius: .4rem;
-    padding-left: .4rem;
-    border: none;
-    font-size: medium;
-    
+  border-radius: 0.4rem;
+  padding-left: 0.4rem;
+  border: none;
+  font-size: medium;
 }
 ::ng-deep .searchBar:focus {
-    outline: none;
-    border: 3px solid rgba(0, 0, 0, 0.118);
-
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0.118);
 }
-

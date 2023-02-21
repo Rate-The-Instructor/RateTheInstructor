@@ -14,11 +14,19 @@ export class InstructorReviewDisplayComponent {
 
   constructor(public dialog: MatDialog, private tokenService: TokenService) {}
 
-  loggedInUser: any
+  loggedInUser: any;
+  likes = 0;
 
-  ngOnInit(){
+  ngOnInit() {
     this.loggedInUser = this.tokenService.getUserData();
     console.log(this.loggedInUser);
+  }
+
+  handleLike(event: any) {
+    setTimeout(() => {
+      event.target.style.color = 'green';
+      this.likes += 1;
+    }, 1000);
   }
 
   openDialog() {

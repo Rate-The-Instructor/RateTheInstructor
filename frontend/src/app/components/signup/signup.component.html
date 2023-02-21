@@ -1,12 +1,18 @@
-<div >
+<div>
   <div>
     <h1 class="mat-headline-4" style="text-align: center">
       <strong>Sign Up</strong> to rate your favorite instructors
     </h1>
   </div>
-  <div style="height: 100%; display: flex; justify-content: center; align-items: cneter;">
+  <div
+    style="
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: cneter;
+    "
+  >
     <div class="example-container" style="width: 400px">
-
       <!-- username -->
       <mat-form-field appearance="fill" class="width-100">
         <mat-label>Create a username</mat-label>
@@ -65,14 +71,15 @@
         >
           <mat-label>Department</mat-label>
           <mat-select [(ngModel)]="signUpData.department">
-            <mat-option value="Software Engineering"> Software Engineering </mat-option>
-            <mat-option value="Electrical Engineering"> Electrical Engineering </mat-option>
-            <mat-option value="Civil Engineering"> Civil Engineering</mat-option>
-            <mat-option value="MechanicalEngineering"> Mechanical Engineering</mat-option>
-            <mat-option value="Chemical Engineering"> Chemical Engineering </mat-option>
+            <mat-option
+              *ngFor="let name of departmentNames"
+              [value]="departments[name]"
+            >
+              {{ name }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
-  
+
         <mat-form-field appearance="fill" class="width-25">
           <mat-label>Year</mat-label>
           <mat-select [(ngModel)]="signUpData.academicYear">
@@ -89,7 +96,12 @@
       <br />
       <div class="signup-btn">
         <span>
-          <button style="margin-right: 40px" mat-raised-button color="primary">
+          <button
+            (click)="handleSignup()"
+            style="margin-right: 40px"
+            mat-raised-button
+            color="primary"
+          >
             Sign Up
           </button>
         </span>

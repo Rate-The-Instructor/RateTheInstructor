@@ -6,7 +6,7 @@
   <div class="bottom">
     <div class="instructors">
       <app-instructor-card
-        *ngFor="let instructor of allInstructors"
+        *ngFor="let instructor of filtered || allInstructors"
         [instructor]="instructor"
       ></app-instructor-card>
     </div>
@@ -16,6 +16,7 @@
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="filterDepartment"
+        (change)="handlefilterChange()"
       >
         <mat-radio-button
           class="example-radio-button"

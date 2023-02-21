@@ -31,8 +31,8 @@ export class ReportPopupComponent {
 
     console.log(reportData);
 
-    this.reportService.postReport(reportData).subscribe(res => {
-      alert('Report submitted successfully!')
+    this.reportService.postReport(reportData).subscribe((res) => {
+      alert('Report submitted successfully!');
     });
   }
 }

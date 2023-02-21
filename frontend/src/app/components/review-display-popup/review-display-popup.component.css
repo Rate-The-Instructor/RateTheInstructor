@@ -1,0 +1,11 @@
+.container {
+  width: 400px;
+  height: 200px;
+  padding: 2rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: end;
+}
