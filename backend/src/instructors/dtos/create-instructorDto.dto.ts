@@ -20,4 +20,8 @@ export class CreateInstructorDto {
   @IsArray()
   @IsString({ each: true })
   ratings: string[];
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  comments: string[];
 }

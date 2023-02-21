@@ -6,8 +6,10 @@ import {
   Patch,
   Param,
   Body,
+  UsePipes,
 } from '@nestjs/common';
 import { CreateRatingDto } from 'src/ratings/dtos/create-rating.dto';
+import { RatingValidation } from 'src/ratings/pipes/rating.validation.pipe';
 import { RatingService } from 'src/ratings/services/rating/rating.service';
 
 @Controller('rating')
@@ -45,6 +47,7 @@ export class RatingController {
   }
 
   @Post()
+  @UsePipes(RatingValidation)
   async createRating(@Body() createDto: CreateRatingDto) {
     return await this.ratingService.createRating(createDto);
   }

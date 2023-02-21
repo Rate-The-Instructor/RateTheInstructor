@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common/exceptions';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CommentService } from 'src/comment/services/comment/comment.service';
 import { ICourse } from 'src/courses/interfaces/course.interface';
 import { CoursesService } from 'src/courses/services/courses/courses.service';
 import { DepartmentService } from 'src/department/service/department.service';
@@ -23,6 +24,8 @@ export class InstructorsService {
     private readonly courseService: CoursesService,
     @Inject(forwardRef(() => RatingService))
     private readonly ratingService: RatingService,
+    @Inject(forwardRef(() => CommentService))
+    private readonly commentService: CommentService,
   ) {}
 
   async createInstructors(
@@ -52,7 +55,12 @@ export class InstructorsService {
   async getAllInstructors(): Promise<IInstructor[]> {
     let instructors: IInstructor[];
     try {
-      instructors = await this.instructorModel.find();
+      instructors = await this.instructorModel
+        .find()
+        .populate('department')
+        .populate('comments')
+        .populate('courses')
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       throw err;
     }
@@ -66,9 +74,10 @@ export class InstructorsService {
     let instructor: IInstructor;
     try {
       instructor = await this.instructorModel
-        .findOne({ id })
+        .findById(id)
         .populate('department')
-        .populate('ratings');
+        .populate('courses')
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       console.log('instructor not found ');
       throw err;
@@ -104,6 +113,7 @@ export class InstructorsService {
       await this.ratingService.deleteMany({
         instructorId: id,
       });
+      await this.commentService.deleteAll({ instructorId: id });
 
       if (deletedInstructor.courses) {
         deletedInstructor.courses.forEach(async (courseId) => {
@@ -144,6 +154,7 @@ export class InstructorsService {
       throw err;
     }
   }
+
   async addCourse(instructorId: string, course: ICourse) {
     try {
       const instructor = await this.getInstructor(instructorId);
@@ -182,6 +193,33 @@ export class InstructorsService {
       throw err;
     }
   }
+  async addComment(instructorId: string, commentId: string) {
+    try {
+      const instructor = await this.getInstructor(instructorId);
+
+      if (instructor.comments) {
+        instructor.comments.push(commentId);
+      } else {
+        instructor.comments = [commentId];
+      }
+      await instructor.save();
+      return instructor;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async deleteComment(instructorId: string, commentId: string) {
+    try {
+      const instructor: IInstructor = await this.getInstructor(instructorId);
+      instructor.comments = instructor.comments.filter(
+        (comment) => comment.toString() !== commentId,
+      );
+      await instructor.save();
+      return instructor;
+    } catch (err) {
+      throw err;
+    }
+  }
   async updateRating(
     rating: IRating,
     instructor: IInstructor,
@@ -194,7 +232,7 @@ export class InstructorsService {
     let prevDifficulty = instructor.difficultyRating * instructor.totalRating;
 
     instructor.totalRating += 1 * sign;
-    await instructor.save();
+    instructor = await instructor.save();
 
     let newOverall =
       (prevOverall + rating.overallRating * sign) / instructor.totalRating;
@@ -238,7 +276,8 @@ export class InstructorsService {
     this.updateTags(rating, instructor, operationType);
 
     try {
-      await instructor.save();
+      instructor = await instructor.save();
+      return instructor;
     } catch (err) {
       throw err;
     }

@@ -20,6 +20,16 @@ export enum Tags {
   AccessibleOutsideClass = 'accessible outside class',
 }
 
+const allTags = [];
+
+Object.values(Tags).forEach((tag) => {
+  let ob = {
+    name: tag,
+    score: 0,
+  };
+  allTags.push(ob);
+});
+
 export const InstructorSchema = new mongoose.Schema(
   {
     firstName: {
@@ -44,6 +54,10 @@ export const InstructorSchema = new mongoose.Schema(
     ratings: {
       type: [mongoose.Types.ObjectId],
       ref: 'Rating',
+    },
+    comments: {
+      type: [mongoose.Types.ObjectId],
+      ref: 'Comment',
     },
     totalRating: {
       required: true,
@@ -77,20 +91,10 @@ export const InstructorSchema = new mongoose.Schema(
         5: 0,
       },
     },
-    tagCounter: [
-      {
-        name: {
-          type: String,
-          required: true,
-          enum: Tags,
-        },
-        score: {
-          type: Number,
-          required: true,
-          default: 0,
-        },
-      },
-    ],
+    tagCounter: {
+      type: Array,
+      default: allTags,
+    },
   },
   { timestamps: true },
 );

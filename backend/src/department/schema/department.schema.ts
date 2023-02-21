@@ -7,7 +7,7 @@ export class Department {
   @Prop({ required: true })
   departmentName: string;
 
-  @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course', required: true })
+  @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course' })
   courses: Course[];
 
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Instructor', required: true })

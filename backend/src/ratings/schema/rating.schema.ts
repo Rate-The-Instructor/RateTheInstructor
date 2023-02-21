@@ -93,13 +93,13 @@ export enum Answers {
 
 export const RatingSchema = new mongoose.Schema(
   {
-    userId: String, //{ type: mongoose.Types.ObjectId, ref: 'User', required: true },
-    instructorId: String, //{
-    //   type: mongoose.Types.ObjectId,
-    //   ref: 'Instructor',
-    //   required: true,
-    // },
-    courseId: String, //{ type: mongoose.Types.ObjectId, ref: 'Course', required: true },
+    userId: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
+    instructorId: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Instructor',
+      required: true,
+    },
+    courseId: { type: mongoose.Types.ObjectId, ref: 'Course', required: true },
     tags: [
       {
         type: String,

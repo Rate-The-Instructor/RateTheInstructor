@@ -9,7 +9,9 @@ export interface IUser extends Document {
   password: string;
   email: string;
   academicYear: number;
+  courses: string[];
   ratings: string[];
+  comments: string[];
   createdAt: Date;
   updatedAt: Date;
 }

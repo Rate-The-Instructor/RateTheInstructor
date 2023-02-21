@@ -22,7 +22,10 @@ export class RatingService {
 
   async getById(id: string): Promise<IRating> {
     try {
-      const rating = await this.ratingModel.findById(id).exec();
+      const rating = await this.ratingModel
+        .findById(id)
+        .populate('courseId')
+        .exec();
       if (!rating) {
         throw new NotFoundException();
       }
@@ -33,7 +36,11 @@ export class RatingService {
   }
   async getByUserId(userId): Promise<IRating[]> {
     try {
-      const rating = await this.ratingModel.find({ userId }).exec();
+      const rating = await this.ratingModel
+        .find({ userId })
+        .populate('courseId')
+        .sort({ createdAt: 'desc' })
+        .exec();
       if (!rating) {
         throw new NotFoundException();
       }
@@ -44,7 +51,11 @@ export class RatingService {
   }
   async getAllByInstructorId(instructorId): Promise<IRating[]> {
     try {
-      const rating = await this.ratingModel.find({ instructorId }).exec();
+      const rating = await this.ratingModel
+        .find({ instructorId })
+        .populate('courseId')
+        .sort({ createdAt: 'desc' })
+        .exec();
       if (!rating) {
         throw new NotFoundException();
       }
@@ -60,6 +71,8 @@ export class RatingService {
     try {
       const rating = await this.ratingModel
         .find({ instructorId, courseId })
+        .populate('courses')
+        .sort({ createdAt: 'desc' })
         .exec();
       if (!rating) {
         throw new NotFoundException();
@@ -71,7 +84,10 @@ export class RatingService {
   }
   async getAllRating(): Promise<IRating[]> {
     try {
-      const ratings = await this.ratingModel.find().exec();
+      const ratings = await this.ratingModel
+        .find()
+        .sort({ createdAt: 'desc' })
+        .exec();
       return ratings;
     } catch (err) {
       throw err;

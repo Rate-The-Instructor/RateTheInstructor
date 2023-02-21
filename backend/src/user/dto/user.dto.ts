@@ -27,6 +27,9 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   readonly schoolId: string;
+  @IsOptional()
+  @IsString({ each: true })
+  readonly courses: string[];
 
   @IsNotEmpty()
   @IsString()
@@ -42,6 +45,9 @@ export class CreateUserDto {
   @IsOptional()
   @IsString({ each: true })
   readonly ratings: string[];
+  @IsOptional()
+  @IsString({ each: true })
+  readonly comments: string[];
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}
