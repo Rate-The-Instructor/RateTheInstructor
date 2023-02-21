@@ -13,7 +13,7 @@ export class Admin {
   @Prop({ required: true, default: false })
   status: boolean;
   @Prop({ required: true })
-  role: string[];
+  role: string;
   @Prop({ required: true })
   password: string;
 }
