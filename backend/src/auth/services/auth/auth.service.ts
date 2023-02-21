@@ -52,6 +52,7 @@ export class AuthService {
       academicYear,
       createdAt,
       updatedAt,
+      role,
     } = user;
     // console.log({ id: _id, ...rest, ...token }, 'the response payload');
     return {
@@ -63,6 +64,7 @@ export class AuthService {
       academicYear,
       createdAt,
       updatedAt,
+      role,
       ...token,
     };
   }

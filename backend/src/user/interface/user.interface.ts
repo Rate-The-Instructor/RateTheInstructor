@@ -10,6 +10,7 @@ export interface IUser extends Document {
   courses: string[];
   ratings: string[];
   comments: string[];
+  role: string;
   createdAt: Date;
   updatedAt: Date;
 }
