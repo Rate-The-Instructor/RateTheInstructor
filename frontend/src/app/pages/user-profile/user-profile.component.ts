@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TokenService } from 'src/app/services/token/token.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { RatingService } from 'src/app/services/rating/rating.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class UserProfileComponent {
   constructor(
     private tokenService: TokenService,
-    private authService: AuthService
+    private authService: AuthService,
+    private ratingService: RatingService
   ) {}
   clicked: boolean = true;
   userData!: any;
@@ -22,8 +24,14 @@ export class UserProfileComponent {
     department: '',
   };
 
+  ratingsByUser: any;
+
   ngOnInit() {
     const user = this.tokenService.getUserData();
+
+    this.ratingService
+      .getRatingsByUserId(user.id)
+      .subscribe((ratings) => (this.ratingsByUser = ratings));
 
     this.newUserData.firstname = user.firstname;
     this.newUserData.lastname = user.lastname;

@@ -5,7 +5,7 @@
         <span><mat-icon>create</mat-icon> Edit</span>
       </button>
     </div>
-    <div class="button-class flag-button">
+    <div class="button-class flag-button" *ngIf="loggedInUser">
       <button mat-button color="warn" aria-label="report button" (click)="openEditDialog() ">
         <span
           ><mat-icon class="material-icons">outlined_flag</mat-icon>
@@ -33,7 +33,6 @@
     <div class="top-content">
       <div class="levelAndSubject">
         <div class="subject">Rating for the course: {{rating.courseId}}</div>
-        <div class="prof--name" style="font-weight: normal;">Inst. Abebe</div>
       </div>
       <div class="date" style="font-weight: 500; margin-right: 2rem;">{{ rating.createdAt | date}}</div>
     </div>

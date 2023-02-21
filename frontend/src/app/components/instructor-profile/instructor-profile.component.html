@@ -22,14 +22,13 @@
         ></app-instructor-review-display>
       </div>
     </mat-tab>
-    <mat-tab label="5 Comments">
+    <mat-tab label="{{ instructor.comments.length + ' Comments' }}">
       <div class="reviews-container">
-        <app-comment-section> </app-comment-section>
-        <h1>24 Comments</h1>
+        <app-comment-section [instructor]="instructor"> </app-comment-section>
+        <h1>{{instructor.comments.length}} Comments</h1>
         <mat-divider></mat-divider>
 
-        <app-view-comment></app-view-comment>
-        <app-view-comment></app-view-comment>
+        <app-view-comment *ngFor="let comment of this.instructor.comments" [comment]="comment"></app-view-comment>
       </div>
     </mat-tab>
   </mat-tab-group>

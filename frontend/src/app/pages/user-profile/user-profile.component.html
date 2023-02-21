@@ -68,10 +68,11 @@
 
     <mat-tab style="margin: 0 5rem">
       <ng-template mat-tab-label>
-        <h1 style="font-weight: bolder">Ratings you gave</h1>
+        <h1 style="font-weight: bolder">Ratings you gave ({{ratingsByUser.length}})</h1>
       </ng-template>
       <div class="reviews-container" style="margin: 0 6rem">
-        <app-instructor-review-display [rating]="newUserData.ratings"></app-instructor-review-display>
+        <div *ngIf="!ratingsByUser" class="comments-container">You've not made any comments yet!</div>
+        <app-instructor-review-display *ngFor="let rating of ratingsByUser" [rating]="rating"></app-instructor-review-display>
       </div>
     </mat-tab>
     <mat-tab>
