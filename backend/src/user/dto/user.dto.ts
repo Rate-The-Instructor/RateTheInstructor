@@ -45,6 +45,9 @@ export class CreateUserDto {
   @IsOptional()
   @IsString({ each: true })
   readonly ratings: string[];
+  @IsOptional()
+  @IsString({ each: true })
+  readonly comments: string[];
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}

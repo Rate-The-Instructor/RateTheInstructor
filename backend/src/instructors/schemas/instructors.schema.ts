@@ -55,6 +55,10 @@ export const InstructorSchema = new mongoose.Schema(
       type: [mongoose.Types.ObjectId],
       ref: 'Rating',
     },
+    comments: {
+      type: [mongoose.Types.ObjectId],
+      ref: 'Comment',
+    },
     totalRating: {
       required: true,
       type: Number,

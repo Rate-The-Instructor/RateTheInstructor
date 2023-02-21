@@ -10,6 +10,7 @@ import { CoursesModule } from './courses/courses.module';
 import { InstructorsModule } from './instructors/instructors.module';
 import { AdminModule } from './admin/admin.module';
 import { DepartmentModule } from './department/department.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { DepartmentModule } from './department/department.module';
     CoursesModule,
     InstructorsModule,
     DepartmentModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

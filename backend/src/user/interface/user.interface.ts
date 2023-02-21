@@ -11,6 +11,7 @@ export interface IUser extends Document {
   academicYear: number;
   courses: string[];
   ratings: string[];
+  comments: string[];
   createdAt: Date;
   updatedAt: Date;
 }
