@@ -1,5 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
+
+export enum roles {
+  ADMIN = 'admin',
+  MODERATOR = 'moderator',
+  USER = 'user',
+}
+
 @Schema({ timestamps: true })
 export class User {
   @Prop({ required: true })
@@ -32,5 +39,7 @@ export class User {
   ratings;
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Comment' })
   comments;
+  @Prop({ required: true, default: roles.USER, enum: roles })
+  role: string;
 }
 export const UserSchema = SchemaFactory.createForClass(User);
