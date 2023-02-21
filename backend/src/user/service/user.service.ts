@@ -27,6 +27,7 @@ export class UserService {
       return await this.userModel
         .findOne({ _id: id }, { password: 0 })
         .populate('department')
+        .populate('comments')
         .sort('courses')
         .populate('ratings');
     } catch (err) {
@@ -36,7 +37,10 @@ export class UserService {
 
   async findByUsername(username: string): Promise<IUser> {
     try {
-      return await this.userModel.findOne({ username }).populate('ratings');
+      return await await this.userModel
+        .findOne({ username })
+        .populate('ratings')
+        .populate('comments');
     } catch (err) {
       throw err;
     }

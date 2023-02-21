@@ -26,7 +26,8 @@ export class RatingValidation implements PipeTransform {
       const instructor = await this.instructorService.getInstructor(
         rating.instructorId,
       );
-      if (user.department != instructor.department) {
+
+      if (user.department.toString() !== instructor.department.toString()) {
         throw new BadRequestException(
           'Student and Instructor Can not be in Different Department',
         );

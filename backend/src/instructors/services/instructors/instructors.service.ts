@@ -58,8 +58,9 @@ export class InstructorsService {
       instructors = await this.instructorModel
         .find()
         .populate('department')
+        .populate('comments')
         .populate('courses')
-        .populate('ratings');
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       throw err;
     }
@@ -73,10 +74,10 @@ export class InstructorsService {
     let instructor: IInstructor;
     try {
       instructor = await this.instructorModel
-        .findOne({ id })
+        .findById(id)
         .populate('department')
         .populate('courses')
-        .populate('ratings');
+        .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       console.log('instructor not found ');
       throw err;
@@ -231,7 +232,7 @@ export class InstructorsService {
     let prevDifficulty = instructor.difficultyRating * instructor.totalRating;
 
     instructor.totalRating += 1 * sign;
-    await instructor.save();
+    instructor = await instructor.save();
 
     let newOverall =
       (prevOverall + rating.overallRating * sign) / instructor.totalRating;
@@ -272,10 +273,11 @@ export class InstructorsService {
     );
     instructor.overallRating = newOverall;
     instructor.difficultyRating = newDifficulty;
-    // this.updateTags(rating, instructor, operationType);
+    this.updateTags(rating, instructor, operationType);
 
     try {
-      await instructor.save();
+      instructor = await instructor.save();
+      return instructor;
     } catch (err) {
       throw err;
     }
