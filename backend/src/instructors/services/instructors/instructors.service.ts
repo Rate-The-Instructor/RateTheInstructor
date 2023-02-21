@@ -58,9 +58,18 @@ export class InstructorsService {
       instructors = await this.instructorModel
         .find()
         .populate('department')
-        .populate({ path: 'comments', populate: { path: 'instructorId' } })
+        .populate({
+          path: 'comments',
+          populate: { path: 'instructorId' },
+          options: { sort: { createdAt: -1 } },
+        })
         .populate('courses')
-        .populate({ path: 'ratings', populate: { path: 'courseId' } });
+        .populate({
+          path: 'ratings',
+          populate: { path: 'courseId' },
+          options: { sort: { createdAt: -1 } },
+        })
+        .sort({});
     } catch (err) {
       throw err;
     }
