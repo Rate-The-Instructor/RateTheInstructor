@@ -1,25 +1,39 @@
-<mat-toolbar class="container" color="primary" class="mat-elevation-z8" style="position: sticky; top: 0; z-index: 40; width: 100%;">
-  <img routerLink="" class="logo" src="../../../assets/rate-the-instructor-high-resolution-logo-white-on-transparent-background.png">
+<mat-toolbar
+  class="container"
+  color="primary"
+  class="mat-elevation-z8"
+  style="position: sticky; top: 0; z-index: 40; width: 100%"
+>
+  <!-- <img routerLink="" class="logo" src="../../../assets/rate-the-instructor-high-resolution-logo-white-on-transparent-background.png"> -->
 
-  <a class="first in" mat-raised-button color="primary" routerLink="instructors">Instructors</a>
+  <a class="first in" mat-raised-button color="primary" routerLink="instructors"
+    >Instructors</a
+  >
   <input
     class="searchBar"
     matInput
     [(ngModel)]="searchTerm"
     placeholder="Search"
   />
-  <a class="first in" mat-flat-button  color="accent" routerLink="admin/reviews">Admin</a>
-   
+  <a class="first in" mat-flat-button color="accent" routerLink="admin/reviews"
+    >Admin</a
+  >
 
   <div class="spacer"></div>
 
   <a mat-button [matMenuTriggerFor]="menu" *ngIf="loggedInUser">
-    <span style="display: flex; align-items: center;"> {{loggedInUser.firstname}}<mat-icon>keyboard_arrow_down</mat-icon> </span>  </a
-  >
+    <span style="display: flex; align-items: center">
+      {{ loggedInUser.firstname }}<mat-icon>keyboard_arrow_down</mat-icon>
+    </span>
+  </a>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item color="warn" routerLink="profile" >Profile</a>
+    <a mat-menu-item color="warn" routerLink="profile">Profile</a>
     <a mat-menu-item color="warn" (click)="logout()">Log Out</a>
   </mat-menu>
-  <a mat-stroked-button theme="forest" routerLink="login" *ngIf="!loggedInUser">Sign In</a>
-  <a mat-raised-button theme="forest" routerLink="signup" *ngIf="!loggedInUser">Sign Up</a>
+  <a mat-stroked-button theme="forest" routerLink="login" *ngIf="!loggedInUser"
+    >Sign In</a
+  >
+  <a mat-raised-button theme="forest" routerLink="signup" *ngIf="!loggedInUser"
+    >Sign Up</a
+  >
 </mat-toolbar>
