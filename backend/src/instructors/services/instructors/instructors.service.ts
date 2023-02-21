@@ -58,7 +58,7 @@ export class InstructorsService {
       instructors = await this.instructorModel
         .find()
         .populate('department')
-        .populate('comments')
+        .populate({ path: 'comments', populate: { path: 'instructorId' } })
         .populate('courses')
         .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
@@ -77,7 +77,7 @@ export class InstructorsService {
         .findById(id)
         .populate('department')
         .populate('courses')
-        .populate('comments')
+        .populate({ path: 'comments', populate: { path: 'instructorId' } })
         .populate({ path: 'ratings', populate: { path: 'courseId' } });
     } catch (err) {
       console.log('instructor not found ');
