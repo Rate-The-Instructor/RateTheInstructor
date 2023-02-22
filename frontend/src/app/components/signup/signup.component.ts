@@ -24,7 +24,7 @@ export class SignupComponent {
   departmentNames: any = ['SITE', 'SMIE', 'SECE', 'SCEE', 'SCBE', 'CBME'];
 
   departments: any = {
-    SiTE: '63f480a5fea0517ef6834071',
+    SITE: '63f480a5fea0517ef6834071',
     SMiE: '63f480b8fea0517ef6834073',
     SECE: '63f480c1fea0517ef6834075',
     SCEE: '63f480d2fea0517ef6834077',
