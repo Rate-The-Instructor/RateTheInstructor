@@ -25,6 +25,8 @@ export class InstructorReviewInputComponent {
   @ViewChild('starRating') starRating!: RatingSystemComponent;
 
   edit: any;
+  isEdit: boolean = false;
+  rating: any;
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -33,7 +35,26 @@ export class InstructorReviewInputComponent {
 
       this.instructorService
         .getInstructorsById(instructorId)
-        .subscribe((instructor) => (this.instructor = instructor));
+        .subscribe((instructor) => {
+          this.instructor = instructor;
+
+          const userData = this.tokenService.getUserData();
+
+          for (let rating of instructor.ratings) {
+            if (rating.userId === userData.id) {
+              this.isEdit = true;
+              this.rating = rating;
+
+              // populate the rating data
+              // this.ratingData.questions = rating.questions;
+              // this.ratingData.courseId = rating.courseId._id;
+              // this.ratingData.instructorId = rating.instructorId;
+              // this.ratingData.overallRating = rating.overallRating;
+              // this.selectedTags = rating.tags;
+              // this.ratingData.review = rating.review;
+            }
+          }
+        });
     });
 
     this.route.queryParams.subscribe((params) => {
@@ -107,6 +128,7 @@ export class InstructorReviewInputComponent {
   }
 
   submitRating() {
+    console.log(this.instructor.ratings, console.log(this.isEdit));
     const userData = this.tokenService.getUserData();
 
     if (!userData) {
@@ -143,18 +165,27 @@ export class InstructorReviewInputComponent {
     };
 
     this.ratingData.userId = userId;
-
     this.ratingData.review = this.reviewText.reviewText;
-
     this.ratingData.overallRating = this.starRating.rating;
 
     console.log(this.ratingData);
 
-    this.ratingService.postRating(this.ratingData).subscribe(
-      (rating) => {
-        this.router.navigate(['/instructors/', this.instructorId]);
-      },
-      (error) => alert('You are not eligible to rate this instructor')
-    );
+    if (!this.isEdit) {
+      this.ratingService.postRating(this.ratingData).subscribe(
+        (rating) => {
+          this.router.navigate(['/instructors/', this.instructorId]);
+        },
+        (error) => alert('You are not eligible to rate this instructor')
+      );
+    } else {
+      this.ratingService
+        .updateRating(this.rating._id, this.ratingData)
+        .subscribe(
+          (rating) => {
+            this.router.navigate(['/instructors/', this.instructorId]);
+          },
+          (error) => alert('You are not eligible to rate this instructor')
+        );
+    }
   }
 }

@@ -17,9 +17,10 @@ export class DeletePopupComponent {
 
   deleteData() {
     if (this.data.type === 'rating') {
-      this.ratingService
-        .deleteRating(this.data.reviewId)
-        .subscribe((res) => alert('Deleted succesfully!'));
+      this.ratingService.deleteRating(this.data.reviewId).subscribe((res) => {
+        alert('Deleted succesfully!');
+        window.location.reload();
+      });
     } else if (this.data.type === 'comment') {
       this.commentService.deleteComment(this.data.reviewId).subscribe((res) => {
         alert('Deleted succesfully!');

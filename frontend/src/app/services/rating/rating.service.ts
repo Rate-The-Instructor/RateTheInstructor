@@ -31,4 +31,11 @@ export class RatingService {
   getRatingsByUserId(userId: string) {
     return this.http.get<any>(`${this.api}/${this.endpoint}/user/${userId}`);
   }
+
+  updateRating(ratingId: string, newRating: any) {
+    return this.http.patch<any>(
+      `${this.api}/${this.endpoint}/${ratingId}`,
+      newRating
+    );
+  }
 }
