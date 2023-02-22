@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { InstructorService } from 'src/app/services/instructor/instructor.service';
 import { OnInit } from '@angular/core';
 import { InstructorInterface } from 'src/app/Interfaces/instructorGet';
+import { SearchService } from 'src/app/services/search/search.service';
 
 @Component({
   selector: 'app-instructors-list-page',
@@ -9,12 +10,41 @@ import { InstructorInterface } from 'src/app/Interfaces/instructorGet';
   styleUrls: ['./instructors-list-page.component.css'],
 })
 export class InstructorsListPageComponent implements OnInit {
-  constructor(private instructorService: InstructorService) {}
+  constructor(
+    private instructorService: InstructorService,
+    private searchService: SearchService
+  ) {}
   allInstructors!: any;
+
+  curInstructors: any = null;
+
   ngOnInit() {
     this.instructorService.getInstructors().subscribe((instructors) => {
+      console.log('GETTING INSTRUCTORS');
       this.allInstructors = instructors;
+
       console.log(instructors[0]);
+    });
+
+    this.searchService.searchStringValue.subscribe((value) => {
+      console.log('Search string: ', value);
+      if (!value) {
+        this.curInstructors = this.allInstructors;
+        return;
+      }
+
+      const newInstructors = this.allInstructors.filter((instructor: any) => {
+        const name: string = instructor.firstName.toLowerCase();
+        value = value.toLocaleLowerCase();
+        console.log(name, 1111);
+        console.log(value, 121212121212);
+
+        return name.startsWith(value);
+      });
+
+      console.log(newInstructors);
+
+      this.curInstructors = newInstructors;
     });
   }
 

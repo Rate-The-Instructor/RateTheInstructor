@@ -6,7 +6,7 @@
   <div class="bottom">
     <div class="instructors">
       <app-instructor-card
-        *ngFor="let instructor of filtered || allInstructors"
+        *ngFor="let instructor of curInstructors || filtered || allInstructors"
         [instructor]="instructor"
       ></app-instructor-card>
     </div>

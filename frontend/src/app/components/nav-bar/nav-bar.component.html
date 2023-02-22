@@ -14,10 +14,12 @@
     >Instructors</a
   >
   <input
+    *ngIf="showSearchBar"
     class="searchBar"
     matInput
     [(ngModel)]="searchTerm"
     placeholder="Search"
+    (input)="handleSearchChange($event)"
   />
   <a
     *ngIf="
