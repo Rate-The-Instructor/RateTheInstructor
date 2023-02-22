@@ -31,6 +31,7 @@ export class UserProfileComponent {
 
   ngOnInit() {
     const user = this.tokenService.getUserData();
+    this.userData = user;
     console.log(user);
 
     this.departmentService
