@@ -25,7 +25,7 @@ export class SignupComponent {
 
   departments: any = {
     SITE: '63f480a5fea0517ef6834071',
-    SMiE: '63f480b8fea0517ef6834073',
+    SMIE: '63f480b8fea0517ef6834073',
     SECE: '63f480c1fea0517ef6834075',
     SCEE: '63f480d2fea0517ef6834077',
     SCBE: '63f480dbfea0517ef6834079',
