@@ -2,36 +2,42 @@
   <div class="side">
     <div class="disc">Awesome</div>
     <div class="bar-container">
-      <div class="{{'bar bar-' + ratingDistribution[5]}}"></div>
+      <div class="bar" [style.width]="five + '%'"></div>
     </div>
-    <div class="count">{{ ratingDistribution[5] }}</div>
+    <div class="count">
+      {{ ratingDistribution[5] }}
+    </div>
   </div>
   <div class="side">
     <div class="disc">Great</div>
     <div class="bar-container">
-      <div class="{{'bar bar-' + ratingDistribution[4]}}"></div>
+      <div class="bar" [style.width]="four + '%'"></div>
     </div>
-    <div class="count">{{ ratingDistribution[4] }}</div>
+    <div class="count">
+      {{ ratingDistribution[4] }}
+    </div>
   </div>
   <div class="side">
     <div class="disc">Good</div>
     <div class="bar-container">
-      <div class="{{'bar bar-' + ratingDistribution[3]}}"></div>
+      <div class="bar" [style.width]="three + '%'"></div>
     </div>
     <div class="count">{{ ratingDistribution[3] }}</div>
   </div>
   <div class="side">
     <div class="disc">Ok</div>
     <div class="bar-container">
-      <div class="{{'bar bar-' + ratingDistribution[2]}}"></div>
+      <div class="bar" [style.width]="two + '%'"></div>
     </div>
     <div class="count">{{ ratingDistribution[2] }}</div>
   </div>
   <div class="side">
     <div class="disc">Awful</div>
     <div class="bar-container">
-      <div class="{{'bar bar-' + ratingDistribution[1]}}"></div>
+      <div class="bar" [style.width]="one + '%'"></div>
     </div>
-    <div class="count">{{ ratingDistribution[1] }}</div>
+    <div class="count">
+      {{ ratingDistribution[1] }}
+    </div>
   </div>
 </div>

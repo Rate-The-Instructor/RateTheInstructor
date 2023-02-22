@@ -10,22 +10,6 @@
         <h1 style="font-weight: bolder">Profile</h1>
       </ng-template>
       <div class="profile-row">
-        <label>First name</label>
-        <input
-          [disabled]="clicked"
-          type="text"
-          [(ngModel)]="newUserData.firstname"
-        />
-      </div>
-      <div class="profile-row">
-        <label>Last name</label>
-        <input
-          [disabled]="clicked"
-          [(ngModel)]="newUserData.lastname"
-          type="text"
-        />
-      </div>
-      <div class="profile-row">
         <label>Email adress</label>
         <input
           [disabled]="clicked"
@@ -36,8 +20,8 @@
       <div class="profile-row">
         <label>Department</label>
 
-        <select [disabled]="clicked" [(ngModel)]="newUserData.department">
-          <option value="Software Engineering">Software Engineering</option>
+        <select [(ngModel)]="newUserData.department" [disabled]="clicked">
+          <option value="SMiE">{{ newUserData.department }}</option>
           <option value="Electrical Engineering">Electrical Engineering</option>
           <option value="Mechanical Engineering">Mechanical Engineering</option>
           <option value="Chemical Engineering">Chemical Engineering</option>
@@ -61,6 +45,7 @@
         (click)="editSection()"
         mat-raised-button
         color="primary"
+        style="display: none"
       >
         Edit
       </button>
@@ -68,11 +53,18 @@
 
     <mat-tab style="margin: 0 5rem">
       <ng-template mat-tab-label>
-        <h1 style="font-weight: bolder">Ratings you gave ({{ratingsByUser.length}})</h1>
+        <h1 style="font-weight: bolder">
+          Ratings you gave ({{ ratingsByUser.length }})
+        </h1>
       </ng-template>
       <div class="reviews-container" style="margin: 0 6rem">
-        <div *ngIf="!ratingsByUser" class="comments-container">You've not made any comments yet!</div>
-        <app-instructor-review-display *ngFor="let rating of ratingsByUser" [rating]="rating"></app-instructor-review-display>
+        <div *ngIf="!ratingsByUser" class="comments-container">
+          You've not made any comments yet!
+        </div>
+        <app-instructor-review-display
+          *ngFor="let rating of ratingsByUser"
+          [rating]="rating"
+        ></app-instructor-review-display>
       </div>
     </mat-tab>
     <mat-tab>

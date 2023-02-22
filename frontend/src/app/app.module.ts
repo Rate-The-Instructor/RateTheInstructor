@@ -59,6 +59,7 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
 import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
 import { InstructoreditComponent } from './components/instructoredit/instructoredit.component';
 import { ReportPopupComponent } from './components/report-popup/report-popup.component';
+import { ReviewDisplayPopupComponent } from './components/review-display-popup/review-display-popup.component';
 
 @NgModule({
   imports: [
@@ -128,6 +129,7 @@ import { ReportPopupComponent } from './components/report-popup/report-popup.com
     InstructoreditComponent,
 
     ReportPopupComponent,
+      ReviewDisplayPopupComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

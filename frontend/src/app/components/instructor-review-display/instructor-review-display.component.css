@@ -6,6 +6,11 @@
   font-size: medium;
   border-radius: 0.5rem;
   border: 1px solid black;
+  width: 900px;
+}
+
+.review {
+  width: 100%;
 }
 
 .rates,

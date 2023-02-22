@@ -30,7 +30,10 @@ export class CommentSectionComponent {
         comment: this.commentText,
       })
       .subscribe(
-        (res) => alert('Comment submitted succesfully!'),
+        (res) => {
+          alert('Comment submitted succesfully!');
+          window.location.reload();
+        },
         (error) => alert('Oops an error occured .. try again')
       );
   }

@@ -24,6 +24,8 @@ export class InstructorReviewInputComponent {
   @ViewChild('reviewText') reviewText!: InstructorReviewComponent;
   @ViewChild('starRating') starRating!: RatingSystemComponent;
 
+  edit: any;
+
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       const instructorId = params.get('instructorId')!;
@@ -32,6 +34,10 @@ export class InstructorReviewInputComponent {
       this.instructorService
         .getInstructorsById(instructorId)
         .subscribe((instructor) => (this.instructor = instructor));
+    });
+
+    this.route.queryParams.subscribe((params) => {
+      this.edit = Boolean(params['edit']);
     });
   }
 
@@ -60,16 +66,14 @@ export class InstructorReviewInputComponent {
   selectedTags: Array<string> = [];
 
   questionsMap: any = {
-    WouldYouTakeThisInstructorAgain: 'Would you take this Instructor again?',
-    DidThisProfessorUseTextbooks: 'Did this Instrucotr use textbooks?',
-    DidTheInstuctorShareMaterials: 'Did the instructor share materials',
-    ExamQuestionsOutOfScope: 'Exam Questions Out Of Scope',
-    WasAttendanceMandatory: 'Was Attendance Mandatory',
-    SelectGradeReceived: 'Select Grade Received',
-    DoesTheInstructorKnowsTheSubjectWell:
-      ' Does The Instructor Knows The Subject Well',
-    IsTheInstructorGoodAtExplainingConcepts:
-      'Is The Instructor Good At Explaining Concepts',
+    WouldYouTakeThisInstructorAgain: 'Would take again?',
+    DidThisProfessorUseTextbooks: 'Use textbooks?',
+    DidTheInstuctorShareMaterials: 'Share materials?',
+    ExamQuestionsOutOfScope: 'Exam Out Of Scope?',
+    WasAttendanceMandatory: 'Attendance Mandatory?',
+    SelectGradeReceived: 'Grade Received',
+    DoesTheInstructorKnowsTheSubjectWell: 'Knows The Subject Well?',
+    IsTheInstructorGoodAtExplainingConcepts: 'Explains Concepts well?',
   };
 
   tags = [
@@ -105,9 +109,9 @@ export class InstructorReviewInputComponent {
   submitRating() {
     const userData = this.tokenService.getUserData();
 
-    if (!userData){
-      this.router.navigate(['/login'])
-      return
+    if (!userData) {
+      this.router.navigate(['/login']);
+      return;
     }
 
     const userId = userData.id;
@@ -129,7 +133,7 @@ export class InstructorReviewInputComponent {
     });
 
     const newQuestionsArray = transformedArray.filter(
-      (qa) => qa.answer !== '' && qa
+      (qa) => qa.answer !== '' && qa && qa.question
     );
 
     this.ratingData = {
@@ -146,8 +150,11 @@ export class InstructorReviewInputComponent {
 
     console.log(this.ratingData);
 
-    this.ratingService.postRating(this.ratingData).subscribe((rating) => {
-      this.router.navigate(['/instructors/', this.instructorId]);
-    });
+    this.ratingService.postRating(this.ratingData).subscribe(
+      (rating) => {
+        this.router.navigate(['/instructors/', this.instructorId]);
+      },
+      (error) => alert('You are not eligible to rate this instructor')
+    );
   }
 }
