@@ -21,7 +21,7 @@ export class SignupComponent {
     academicYear: 1,
   };
 
-  departmentNames: any = ['SiTE', 'SMiE', 'SECE', 'SCEE', 'SCBE', 'CBME'];
+  departmentNames: any = ['SITE', 'SMIE', 'SECE', 'SCEE', 'SCBE', 'CBME'];
 
   departments: any = {
     SiTE: '63f480a5fea0517ef6834071',
