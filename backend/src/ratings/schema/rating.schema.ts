@@ -23,7 +23,7 @@ export enum Tags {
 
 export enum Questions {
   WouldYouTakeThisInstructorAgain = 'Would take again?',
-  DidThisProfessorUseTextbooks = 'Use textbooks?',
+  DidThisProfessorUseTextbooks = 'Uses textbooks?',
   DidTheInstuctorShareMaterials = 'Share materials?',
   ExamQuestionsOutOfScope = 'Exam Out Of Scope?',
   WasAttendanceMandatory = 'Attendance Mandatory?',
@@ -38,6 +38,16 @@ export enum Answers {
   SOMETIMES = 'sometimes',
   TOSOMEEXTENT = 'to some extent',
   A = 'A',
+  AMinus = 'A-',
+  APlus = 'A+',
+  B = 'B',
+  BMinus = 'B-',
+  BPlus = 'B+',
+  CMinus = 'C-',
+  CPlus = 'C+',
+  C = 'C',
+  D = 'D',
+  F = 'F',
 }
 
 // @Schema({ timestamps: true })
