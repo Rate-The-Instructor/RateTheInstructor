@@ -24,7 +24,7 @@ export enum Tags {
 export enum Questions {
   WouldYouTakeThisInstructorAgain = 'Would take again?',
   DidThisProfessorUseTextbooks = 'Uses textbooks?',
-  DidTheInstuctorShareMaterials = 'Share materials?',
+  DidTheInstuctorShareMaterials = 'Shares materials?',
   ExamQuestionsOutOfScope = 'Exam Out Of Scope?',
   WasAttendanceMandatory = 'Attendance Mandatory?',
   SelectGradeReceived = 'Grade Received',
